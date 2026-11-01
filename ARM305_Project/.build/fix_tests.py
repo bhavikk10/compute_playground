@@ -1,2 +1,0 @@
-from pathlib import Path
-p=Path('tests/test_ui.py');s=p.read_text().replace("a.button[1].click().run()","next(b for b in a.button if b.label=='Load 18 sample tasks').click().run()").replace("a.button[5].click().run()","next(b for b in a.button if b.label=='Place task').click().run()").replace("a.selectbox[0].select('tenant_b').run()","next(s for s in a.selectbox if s.label=='Demo identity').select('tenant_b').run()").replace("a.button[-1].click().run()","next(b for b in a.button if b.label=='Attempt access as current tenant').click().run()");p.write_text(s)
