@@ -1,0 +1,17 @@
+# Viva preparation
+- The engine changes resource and VM state. It does not reserve real laptop resources.
+- All three placement policies first enforce CPU, RAM and end-to-end response feasibility.
+- Queue-off immediately rejects blocked tasks. Queue-on waits only for statically feasible work.
+- A deadline is arrival + sensitivity budget. Waiting + processing + network must fit it.
+- Earliest deadline wins queue priority; arrival and ID break ties. Feasible jobs can pass blocked jobs.
+- All same-time completions free resources before queue retries. At its deadline an unstarted task expires.
+- A queued task has no VM. Stop cancels a running VM; cancel_queued cancels waiting work.
+- Release is idempotent, and consumed energy freezes when processing ends or is cancelled.
+- Energy = CPU * hypothetical watts per CPU * processing seconds. It omits idle, memory, network and cooling energy.
+- energy_aware balances normalized response and modeled task energy equally. It is not a global optimum.
+- Across 10 paired seeds, energy_aware did not have the lowest total modeled energy. Compare completed tasks too.
+- Seeded generators use a private random.Random instance. Each policy receives identical tasks and a fresh state.
+- Timeline and decision APIs enforce tenant ownership. Saved attempts are historical copies.
+- Animation is virtual playback, not actual hardware execution. Processing completion differs from response prediction.
+- A real backend needs a resource/execution adapter, authentication, telemetry and state reconciliation; none is implemented.
+- Remaining limitations: fixed latency, no failures, no migration, no contention slowdown, synthetic capacities/energy and demo identities.

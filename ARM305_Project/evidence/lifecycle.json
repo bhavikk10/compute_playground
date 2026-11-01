@@ -1,0 +1,106 @@
+{
+  "allocated": [
+    {
+      "name": "Edge",
+      "cpu": 4,
+      "ram": 4,
+      "latency": 5,
+      "speed": 1,
+      "cpu_used": 2,
+      "ram_used": 1
+    },
+    {
+      "name": "Fog",
+      "cpu": 12,
+      "ram": 16,
+      "latency": 25,
+      "speed": 2,
+      "cpu_used": 0,
+      "ram_used": 0
+    },
+    {
+      "name": "Cloud",
+      "cpu": 32,
+      "ram": 64,
+      "latency": 100,
+      "speed": 4,
+      "cpu_used": 0,
+      "ram_used": 0
+    }
+  ],
+  "after_stop": [
+    {
+      "name": "Edge",
+      "cpu": 4,
+      "ram": 4,
+      "latency": 5,
+      "speed": 1,
+      "cpu_used": 0.0,
+      "ram_used": 0.0
+    },
+    {
+      "name": "Fog",
+      "cpu": 12,
+      "ram": 16,
+      "latency": 25,
+      "speed": 2,
+      "cpu_used": 0,
+      "ram_used": 0
+    },
+    {
+      "name": "Cloud",
+      "cpu": 32,
+      "ram": 64,
+      "latency": 100,
+      "speed": 4,
+      "cpu_used": 0,
+      "ram_used": 0
+    }
+  ],
+  "after_second_stop": [
+    {
+      "name": "Edge",
+      "cpu": 4,
+      "ram": 4,
+      "latency": 5,
+      "speed": 1,
+      "cpu_used": 0.0,
+      "ram_used": 0.0
+    },
+    {
+      "name": "Fog",
+      "cpu": 12,
+      "ram": 16,
+      "latency": 25,
+      "speed": 2,
+      "cpu_used": 0,
+      "ram_used": 0
+    },
+    {
+      "name": "Cloud",
+      "cpu": 32,
+      "ram": 64,
+      "latency": 100,
+      "speed": 4,
+      "cpu_used": 0,
+      "ram_used": 0
+    }
+  ],
+  "task": {
+    "id": "life",
+    "tenant": "tenant_a",
+    "cpu": 2,
+    "ram": 1,
+    "sensitivity": "high",
+    "work": 80,
+    "arrival": 0,
+    "policy": "latency_first",
+    "budget_ms": 60,
+    "node": "Edge",
+    "status": "cancelled",
+    "processing_ms": 40.0,
+    "response_ms": 45.0,
+    "finish_ms": 40.0,
+    "reason": "Edge selected; latency_first score=5.0000. Edge: capacity=pass, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=fail"
+  }
+}

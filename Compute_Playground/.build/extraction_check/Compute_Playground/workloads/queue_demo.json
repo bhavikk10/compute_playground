@@ -1,0 +1,128 @@
+[
+  {
+    "id": "fill-00",
+    "tenant": "tenant_a",
+    "cpu": 4,
+    "ram": 4,
+    "sensitivity": "low",
+    "work": 400,
+    "arrival": 0
+  },
+  {
+    "id": "fill-01",
+    "tenant": "tenant_a",
+    "cpu": 4,
+    "ram": 4,
+    "sensitivity": "low",
+    "work": 400,
+    "arrival": 0
+  },
+  {
+    "id": "fill-02",
+    "tenant": "tenant_a",
+    "cpu": 4,
+    "ram": 4,
+    "sensitivity": "low",
+    "work": 400,
+    "arrival": 0
+  },
+  {
+    "id": "fill-03",
+    "tenant": "tenant_a",
+    "cpu": 4,
+    "ram": 4,
+    "sensitivity": "low",
+    "work": 400,
+    "arrival": 0
+  },
+  {
+    "id": "fill-04",
+    "tenant": "tenant_a",
+    "cpu": 4,
+    "ram": 4,
+    "sensitivity": "low",
+    "work": 400,
+    "arrival": 0
+  },
+  {
+    "id": "fill-05",
+    "tenant": "tenant_a",
+    "cpu": 4,
+    "ram": 4,
+    "sensitivity": "low",
+    "work": 400,
+    "arrival": 0
+  },
+  {
+    "id": "fill-06",
+    "tenant": "tenant_a",
+    "cpu": 4,
+    "ram": 4,
+    "sensitivity": "low",
+    "work": 400,
+    "arrival": 0
+  },
+  {
+    "id": "fill-07",
+    "tenant": "tenant_a",
+    "cpu": 4,
+    "ram": 4,
+    "sensitivity": "low",
+    "work": 400,
+    "arrival": 0
+  },
+  {
+    "id": "fill-08",
+    "tenant": "tenant_a",
+    "cpu": 4,
+    "ram": 4,
+    "sensitivity": "low",
+    "work": 400,
+    "arrival": 0
+  },
+  {
+    "id": "fill-09",
+    "tenant": "tenant_a",
+    "cpu": 4,
+    "ram": 4,
+    "sensitivity": "low",
+    "work": 400,
+    "arrival": 0
+  },
+  {
+    "id": "fill-10",
+    "tenant": "tenant_a",
+    "cpu": 4,
+    "ram": 4,
+    "sensitivity": "low",
+    "work": 400,
+    "arrival": 0
+  },
+  {
+    "id": "fill-11",
+    "tenant": "tenant_a",
+    "cpu": 4,
+    "ram": 4,
+    "sensitivity": "low",
+    "work": 400,
+    "arrival": 0
+  },
+  {
+    "id": "wait-success",
+    "tenant": "tenant_a",
+    "cpu": 4,
+    "ram": 4,
+    "sensitivity": "low",
+    "work": 100,
+    "arrival": 0
+  },
+  {
+    "id": "urgent-expiry",
+    "tenant": "tenant_a",
+    "cpu": 4,
+    "ram": 4,
+    "sensitivity": "high",
+    "work": 200,
+    "arrival": 0
+  }
+]

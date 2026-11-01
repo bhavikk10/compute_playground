@@ -1,0 +1,37 @@
+test_capacity_invariant (test_engine.SimulatorTests.test_capacity_invariant) ... ok
+test_completion (test_engine.SimulatorTests.test_completion) ... ok
+test_deterministic (test_engine.SimulatorTests.test_deterministic) ... ok
+test_fractional_release (test_engine.SimulatorTests.test_fractional_release) ... ok
+test_policy_difference (test_engine.SimulatorTests.test_policy_difference) ... ok
+test_rejection_and_fallback (test_engine.SimulatorTests.test_rejection_and_fallback) ... ok
+test_security (test_engine.SimulatorTests.test_security) ... ok
+test_stop_twice (test_engine.SimulatorTests.test_stop_twice) ... ok
+test_validation (test_engine.SimulatorTests.test_validation) ... ok
+test_deadline_and_impossible (test_extensions.ExtensionTests.test_deadline_and_impossible) ... ok
+test_energy_policy (test_extensions.ExtensionTests.test_energy_policy) ... ok
+test_equal_time_completions_before_queue (test_extensions.ExtensionTests.test_equal_time_completions_before_queue) ... ok
+test_protected_explorer (test_extensions.ExtensionTests.test_protected_explorer) ... ok
+test_queue_and_waiting_response (test_extensions.ExtensionTests.test_queue_and_waiting_response) ... ok
+test_queued_cancellation (test_extensions.ExtensionTests.test_queued_cancellation) ... ok
+test_release_at_deadline_cannot_start_late (test_extensions.ExtensionTests.test_release_at_deadline_cannot_start_late) ... ok
+test_seeded_workloads (test_extensions.ExtensionTests.test_seeded_workloads) ... ok
+test_stop_dispatch_and_energy (test_extensions.ExtensionTests.test_stop_dispatch_and_energy) ... ok
+test_custom_and_collision (test_ui.UITests.test_custom_and_collision) ... 2026-11-01 19:03:57.635 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_friendly_submission_receipt (test_ui.UITests.test_friendly_submission_receipt) ... 2026-11-01 19:04:01.173 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_mixed_sample_and_scheduled_arrivals (test_ui.UITests.test_mixed_sample_and_scheduled_arrivals) ... 2026-11-01 19:04:02.020 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_pending_id_is_reserved (test_ui.UITests.test_pending_id_is_reserved) ... 2026-11-01 19:04:03.563 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_queue_demo_explorer_and_completion (test_ui.UITests.test_queue_demo_explorer_and_completion) ... 2026-11-01 19:04:04.791 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_sample_and_security (test_ui.UITests.test_sample_and_security) ... 2026-11-01 19:04:06.214 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_scheduled_seeded_workload (test_ui.UITests.test_scheduled_seeded_workload) ... 2026-11-01 19:04:08.173 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 11.785s
+
+OK

@@ -1,0 +1,744 @@
+{
+  "fill-00": [
+    {
+      "time_ms": 0,
+      "policy": "latency_first",
+      "nodes": [
+        {
+          "node": "Edge",
+          "cpu_available": 4,
+          "ram_available": 4,
+          "capacity_pass": true,
+          "qos_pass": true,
+          "eligible": true,
+          "processing_ms": 100.0,
+          "wait_ms": 0,
+          "response_ms": 105.0,
+          "projected_utilization": 1.0,
+          "estimated_energy_j": 0.8,
+          "score": 5,
+          "selected": true
+        },
+        {
+          "node": "Fog",
+          "cpu_available": 12,
+          "ram_available": 16,
+          "capacity_pass": true,
+          "qos_pass": true,
+          "eligible": true,
+          "processing_ms": 50.0,
+          "wait_ms": 0,
+          "response_ms": 75.0,
+          "projected_utilization": 0.3333333333333333,
+          "estimated_energy_j": 1.2,
+          "score": 25,
+          "selected": false
+        },
+        {
+          "node": "Cloud",
+          "cpu_available": 32,
+          "ram_available": 64,
+          "capacity_pass": true,
+          "qos_pass": true,
+          "eligible": true,
+          "processing_ms": 25.0,
+          "wait_ms": 0,
+          "response_ms": 125.0,
+          "projected_utilization": 0.125,
+          "estimated_energy_j": 1.8,
+          "score": 100,
+          "selected": false
+        }
+      ]
+    }
+  ],
+  "fill-01": [
+    {
+      "time_ms": 0,
+      "policy": "latency_first",
+      "nodes": [
+        {
+          "node": "Edge",
+          "cpu_available": 0.0,
+          "ram_available": 0.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 100.0,
+          "wait_ms": 0,
+          "response_ms": 105.0,
+          "projected_utilization": 2.0,
+          "estimated_energy_j": 0.8,
+          "score": 5,
+          "selected": false
+        },
+        {
+          "node": "Fog",
+          "cpu_available": 12,
+          "ram_available": 16,
+          "capacity_pass": true,
+          "qos_pass": true,
+          "eligible": true,
+          "processing_ms": 50.0,
+          "wait_ms": 0,
+          "response_ms": 75.0,
+          "projected_utilization": 0.3333333333333333,
+          "estimated_energy_j": 1.2,
+          "score": 25,
+          "selected": true
+        },
+        {
+          "node": "Cloud",
+          "cpu_available": 32,
+          "ram_available": 64,
+          "capacity_pass": true,
+          "qos_pass": true,
+          "eligible": true,
+          "processing_ms": 25.0,
+          "wait_ms": 0,
+          "response_ms": 125.0,
+          "projected_utilization": 0.125,
+          "estimated_energy_j": 1.8,
+          "score": 100,
+          "selected": false
+        }
+      ]
+    }
+  ],
+  "fill-02": [
+    {
+      "time_ms": 0,
+      "policy": "latency_first",
+      "nodes": [
+        {
+          "node": "Edge",
+          "cpu_available": 0.0,
+          "ram_available": 0.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 100.0,
+          "wait_ms": 0,
+          "response_ms": 105.0,
+          "projected_utilization": 2.0,
+          "estimated_energy_j": 0.8,
+          "score": 5,
+          "selected": false
+        },
+        {
+          "node": "Fog",
+          "cpu_available": 8.0,
+          "ram_available": 12.0,
+          "capacity_pass": true,
+          "qos_pass": true,
+          "eligible": true,
+          "processing_ms": 50.0,
+          "wait_ms": 0,
+          "response_ms": 75.0,
+          "projected_utilization": 0.6666666666666666,
+          "estimated_energy_j": 1.2,
+          "score": 25,
+          "selected": true
+        },
+        {
+          "node": "Cloud",
+          "cpu_available": 32,
+          "ram_available": 64,
+          "capacity_pass": true,
+          "qos_pass": true,
+          "eligible": true,
+          "processing_ms": 25.0,
+          "wait_ms": 0,
+          "response_ms": 125.0,
+          "projected_utilization": 0.125,
+          "estimated_energy_j": 1.8,
+          "score": 100,
+          "selected": false
+        }
+      ]
+    }
+  ],
+  "fill-03": [
+    {
+      "time_ms": 0,
+      "policy": "latency_first",
+      "nodes": [
+        {
+          "node": "Edge",
+          "cpu_available": 0.0,
+          "ram_available": 0.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 100.0,
+          "wait_ms": 0,
+          "response_ms": 105.0,
+          "projected_utilization": 2.0,
+          "estimated_energy_j": 0.8,
+          "score": 5,
+          "selected": false
+        },
+        {
+          "node": "Fog",
+          "cpu_available": 4.0,
+          "ram_available": 8.0,
+          "capacity_pass": true,
+          "qos_pass": true,
+          "eligible": true,
+          "processing_ms": 50.0,
+          "wait_ms": 0,
+          "response_ms": 75.0,
+          "projected_utilization": 1.0,
+          "estimated_energy_j": 1.2,
+          "score": 25,
+          "selected": true
+        },
+        {
+          "node": "Cloud",
+          "cpu_available": 32,
+          "ram_available": 64,
+          "capacity_pass": true,
+          "qos_pass": true,
+          "eligible": true,
+          "processing_ms": 25.0,
+          "wait_ms": 0,
+          "response_ms": 125.0,
+          "projected_utilization": 0.125,
+          "estimated_energy_j": 1.8,
+          "score": 100,
+          "selected": false
+        }
+      ]
+    }
+  ],
+  "fill-04": [
+    {
+      "time_ms": 0,
+      "policy": "latency_first",
+      "nodes": [
+        {
+          "node": "Edge",
+          "cpu_available": 0.0,
+          "ram_available": 0.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 100.0,
+          "wait_ms": 0,
+          "response_ms": 105.0,
+          "projected_utilization": 2.0,
+          "estimated_energy_j": 0.8,
+          "score": 5,
+          "selected": false
+        },
+        {
+          "node": "Fog",
+          "cpu_available": 0.0,
+          "ram_available": 4.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 50.0,
+          "wait_ms": 0,
+          "response_ms": 75.0,
+          "projected_utilization": 1.3333333333333333,
+          "estimated_energy_j": 1.2,
+          "score": 25,
+          "selected": false
+        },
+        {
+          "node": "Cloud",
+          "cpu_available": 32,
+          "ram_available": 64,
+          "capacity_pass": true,
+          "qos_pass": true,
+          "eligible": true,
+          "processing_ms": 25.0,
+          "wait_ms": 0,
+          "response_ms": 125.0,
+          "projected_utilization": 0.125,
+          "estimated_energy_j": 1.8,
+          "score": 100,
+          "selected": true
+        }
+      ]
+    }
+  ],
+  "fill-05": [
+    {
+      "time_ms": 0,
+      "policy": "latency_first",
+      "nodes": [
+        {
+          "node": "Edge",
+          "cpu_available": 0.0,
+          "ram_available": 0.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 100.0,
+          "wait_ms": 0,
+          "response_ms": 105.0,
+          "projected_utilization": 2.0,
+          "estimated_energy_j": 0.8,
+          "score": 5,
+          "selected": false
+        },
+        {
+          "node": "Fog",
+          "cpu_available": 0.0,
+          "ram_available": 4.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 50.0,
+          "wait_ms": 0,
+          "response_ms": 75.0,
+          "projected_utilization": 1.3333333333333333,
+          "estimated_energy_j": 1.2,
+          "score": 25,
+          "selected": false
+        },
+        {
+          "node": "Cloud",
+          "cpu_available": 28.0,
+          "ram_available": 60.0,
+          "capacity_pass": true,
+          "qos_pass": true,
+          "eligible": true,
+          "processing_ms": 25.0,
+          "wait_ms": 0,
+          "response_ms": 125.0,
+          "projected_utilization": 0.25,
+          "estimated_energy_j": 1.8,
+          "score": 100,
+          "selected": true
+        }
+      ]
+    }
+  ],
+  "fill-06": [
+    {
+      "time_ms": 0,
+      "policy": "latency_first",
+      "nodes": [
+        {
+          "node": "Edge",
+          "cpu_available": 0.0,
+          "ram_available": 0.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 100.0,
+          "wait_ms": 0,
+          "response_ms": 105.0,
+          "projected_utilization": 2.0,
+          "estimated_energy_j": 0.8,
+          "score": 5,
+          "selected": false
+        },
+        {
+          "node": "Fog",
+          "cpu_available": 0.0,
+          "ram_available": 4.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 50.0,
+          "wait_ms": 0,
+          "response_ms": 75.0,
+          "projected_utilization": 1.3333333333333333,
+          "estimated_energy_j": 1.2,
+          "score": 25,
+          "selected": false
+        },
+        {
+          "node": "Cloud",
+          "cpu_available": 24.0,
+          "ram_available": 56.0,
+          "capacity_pass": true,
+          "qos_pass": true,
+          "eligible": true,
+          "processing_ms": 25.0,
+          "wait_ms": 0,
+          "response_ms": 125.0,
+          "projected_utilization": 0.375,
+          "estimated_energy_j": 1.8,
+          "score": 100,
+          "selected": true
+        }
+      ]
+    }
+  ],
+  "fill-07": [
+    {
+      "time_ms": 0,
+      "policy": "latency_first",
+      "nodes": [
+        {
+          "node": "Edge",
+          "cpu_available": 0.0,
+          "ram_available": 0.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 100.0,
+          "wait_ms": 0,
+          "response_ms": 105.0,
+          "projected_utilization": 2.0,
+          "estimated_energy_j": 0.8,
+          "score": 5,
+          "selected": false
+        },
+        {
+          "node": "Fog",
+          "cpu_available": 0.0,
+          "ram_available": 4.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 50.0,
+          "wait_ms": 0,
+          "response_ms": 75.0,
+          "projected_utilization": 1.3333333333333333,
+          "estimated_energy_j": 1.2,
+          "score": 25,
+          "selected": false
+        },
+        {
+          "node": "Cloud",
+          "cpu_available": 20.0,
+          "ram_available": 52.0,
+          "capacity_pass": true,
+          "qos_pass": true,
+          "eligible": true,
+          "processing_ms": 25.0,
+          "wait_ms": 0,
+          "response_ms": 125.0,
+          "projected_utilization": 0.5,
+          "estimated_energy_j": 1.8,
+          "score": 100,
+          "selected": true
+        }
+      ]
+    }
+  ],
+  "fill-08": [
+    {
+      "time_ms": 0,
+      "policy": "latency_first",
+      "nodes": [
+        {
+          "node": "Edge",
+          "cpu_available": 0.0,
+          "ram_available": 0.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 100.0,
+          "wait_ms": 0,
+          "response_ms": 105.0,
+          "projected_utilization": 2.0,
+          "estimated_energy_j": 0.8,
+          "score": 5,
+          "selected": false
+        },
+        {
+          "node": "Fog",
+          "cpu_available": 0.0,
+          "ram_available": 4.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 50.0,
+          "wait_ms": 0,
+          "response_ms": 75.0,
+          "projected_utilization": 1.3333333333333333,
+          "estimated_energy_j": 1.2,
+          "score": 25,
+          "selected": false
+        },
+        {
+          "node": "Cloud",
+          "cpu_available": 16.0,
+          "ram_available": 48.0,
+          "capacity_pass": true,
+          "qos_pass": true,
+          "eligible": true,
+          "processing_ms": 25.0,
+          "wait_ms": 0,
+          "response_ms": 125.0,
+          "projected_utilization": 0.625,
+          "estimated_energy_j": 1.8,
+          "score": 100,
+          "selected": true
+        }
+      ]
+    }
+  ],
+  "fill-09": [
+    {
+      "time_ms": 0,
+      "policy": "latency_first",
+      "nodes": [
+        {
+          "node": "Edge",
+          "cpu_available": 0.0,
+          "ram_available": 0.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 100.0,
+          "wait_ms": 0,
+          "response_ms": 105.0,
+          "projected_utilization": 2.0,
+          "estimated_energy_j": 0.8,
+          "score": 5,
+          "selected": false
+        },
+        {
+          "node": "Fog",
+          "cpu_available": 0.0,
+          "ram_available": 4.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 50.0,
+          "wait_ms": 0,
+          "response_ms": 75.0,
+          "projected_utilization": 1.3333333333333333,
+          "estimated_energy_j": 1.2,
+          "score": 25,
+          "selected": false
+        },
+        {
+          "node": "Cloud",
+          "cpu_available": 12.0,
+          "ram_available": 44.0,
+          "capacity_pass": true,
+          "qos_pass": true,
+          "eligible": true,
+          "processing_ms": 25.0,
+          "wait_ms": 0,
+          "response_ms": 125.0,
+          "projected_utilization": 0.75,
+          "estimated_energy_j": 1.8,
+          "score": 100,
+          "selected": true
+        }
+      ]
+    }
+  ],
+  "fill-10": [
+    {
+      "time_ms": 0,
+      "policy": "latency_first",
+      "nodes": [
+        {
+          "node": "Edge",
+          "cpu_available": 0.0,
+          "ram_available": 0.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 100.0,
+          "wait_ms": 0,
+          "response_ms": 105.0,
+          "projected_utilization": 2.0,
+          "estimated_energy_j": 0.8,
+          "score": 5,
+          "selected": false
+        },
+        {
+          "node": "Fog",
+          "cpu_available": 0.0,
+          "ram_available": 4.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 50.0,
+          "wait_ms": 0,
+          "response_ms": 75.0,
+          "projected_utilization": 1.3333333333333333,
+          "estimated_energy_j": 1.2,
+          "score": 25,
+          "selected": false
+        },
+        {
+          "node": "Cloud",
+          "cpu_available": 8.0,
+          "ram_available": 40.0,
+          "capacity_pass": true,
+          "qos_pass": true,
+          "eligible": true,
+          "processing_ms": 25.0,
+          "wait_ms": 0,
+          "response_ms": 125.0,
+          "projected_utilization": 0.875,
+          "estimated_energy_j": 1.8,
+          "score": 100,
+          "selected": true
+        }
+      ]
+    }
+  ],
+  "fill-11": [
+    {
+      "time_ms": 0,
+      "policy": "latency_first",
+      "nodes": [
+        {
+          "node": "Edge",
+          "cpu_available": 0.0,
+          "ram_available": 0.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 100.0,
+          "wait_ms": 0,
+          "response_ms": 105.0,
+          "projected_utilization": 2.0,
+          "estimated_energy_j": 0.8,
+          "score": 5,
+          "selected": false
+        },
+        {
+          "node": "Fog",
+          "cpu_available": 0.0,
+          "ram_available": 4.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 50.0,
+          "wait_ms": 0,
+          "response_ms": 75.0,
+          "projected_utilization": 1.3333333333333333,
+          "estimated_energy_j": 1.2,
+          "score": 25,
+          "selected": false
+        },
+        {
+          "node": "Cloud",
+          "cpu_available": 4.0,
+          "ram_available": 36.0,
+          "capacity_pass": true,
+          "qos_pass": true,
+          "eligible": true,
+          "processing_ms": 25.0,
+          "wait_ms": 0,
+          "response_ms": 125.0,
+          "projected_utilization": 1.0,
+          "estimated_energy_j": 1.8,
+          "score": 100,
+          "selected": true
+        }
+      ]
+    }
+  ],
+  "urgent-expiry": [
+    {
+      "time_ms": 0,
+      "policy": "latency_first",
+      "nodes": [
+        {
+          "node": "Edge",
+          "cpu_available": 0.0,
+          "ram_available": 0.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 50.0,
+          "wait_ms": 0,
+          "response_ms": 55.0,
+          "projected_utilization": 2.0,
+          "estimated_energy_j": 0.4,
+          "score": 5,
+          "selected": false
+        },
+        {
+          "node": "Fog",
+          "cpu_available": 0.0,
+          "ram_available": 4.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 25.0,
+          "wait_ms": 0,
+          "response_ms": 50.0,
+          "projected_utilization": 1.3333333333333333,
+          "estimated_energy_j": 0.6,
+          "score": 25,
+          "selected": false
+        },
+        {
+          "node": "Cloud",
+          "cpu_available": 0.0,
+          "ram_available": 32.0,
+          "capacity_pass": false,
+          "qos_pass": false,
+          "eligible": false,
+          "processing_ms": 12.5,
+          "wait_ms": 0,
+          "response_ms": 112.5,
+          "projected_utilization": 1.125,
+          "estimated_energy_j": 0.9,
+          "score": 100,
+          "selected": false
+        }
+      ]
+    }
+  ],
+  "wait-success": [
+    {
+      "time_ms": 0,
+      "policy": "latency_first",
+      "nodes": [
+        {
+          "node": "Edge",
+          "cpu_available": 0.0,
+          "ram_available": 0.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 25.0,
+          "wait_ms": 0,
+          "response_ms": 30.0,
+          "projected_utilization": 2.0,
+          "estimated_energy_j": 0.2,
+          "score": 5,
+          "selected": false
+        },
+        {
+          "node": "Fog",
+          "cpu_available": 0.0,
+          "ram_available": 4.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 12.5,
+          "wait_ms": 0,
+          "response_ms": 37.5,
+          "projected_utilization": 1.3333333333333333,
+          "estimated_energy_j": 0.3,
+          "score": 25,
+          "selected": false
+        },
+        {
+          "node": "Cloud",
+          "cpu_available": 0.0,
+          "ram_available": 32.0,
+          "capacity_pass": false,
+          "qos_pass": true,
+          "eligible": false,
+          "processing_ms": 6.25,
+          "wait_ms": 0,
+          "response_ms": 106.25,
+          "projected_utilization": 1.125,
+          "estimated_energy_j": 0.45,
+          "score": 100,
+          "selected": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "setup": "Seeds 0-9; 40 tasks each; fresh engine per seed/policy; queue on for all policies. Weights and watts are model assumptions.",
+  "expected": "Reproducible paired comparisons; queue can improve acceptance but waiting counts against response budgets.",
+  "actual": {
+    "seeded": [
+      {
+        "policy": "capacity_aware",
+        "runs": 10,
+        "completed_mean": 33.5,
+        "completed_std": 1.9578900207451218,
+        "mean_response_ms": 89.3996089589306,
+        "response_std_ms": 8.468232503038744,
+        "mean_wait_ms": 0.03333333333333333,
+        "mean_energy_j": 21.424,
+        "energy_std_j": 4.192742936710209,
+        "mean_expired": 0.0,
+        "mean_rejected": 6.5
+      },
+      {
+        "policy": "energy_aware",
+        "runs": 10,
+        "completed_mean": 32.9,
+        "completed_std": 2.5144029554194813,
+        "mean_response_ms": 72.475891938724,
+        "response_std_ms": 7.752349234442554,
+        "mean_wait_ms": 0.2364288897377133,
+        "mean_energy_j": 16.456,
+        "energy_std_j": 3.565847881095198,
+        "mean_expired": 0.6,
+        "mean_rejected": 6.5
+      },
+      {
+        "policy": "latency_first",
+        "runs": 10,
+        "completed_mean": 32.8,
+        "completed_std": 2.485513584307633,
+        "mean_response_ms": 74.29980685822716,
+        "response_std_ms": 10.013999563520292,
+        "mean_wait_ms": 0.32488912231559297,
+        "mean_energy_j": 16.232,
+        "energy_std_j": 3.353819712904477,
+        "mean_expired": 0.7,
+        "mean_rejected": 6.5
+      }
+    ],
+    "queue_comparison": [
+      {
+        "scenario": "queue_off",
+        "total": 14,
+        "completed": 12,
+        "rejected": 2,
+        "expired": 0,
+        "cancelled": 0,
+        "mean_ms": 110.83333333333333,
+        "p95_ms": 125.0,
+        "mean_wait_ms": 0.0,
+        "energy_j": 18.8,
+        "qos_percent": 100.0
+      },
+      {
+        "scenario": "queue_on",
+        "total": 14,
+        "completed": 13,
+        "rejected": 0,
+        "expired": 1,
+        "cancelled": 0,
+        "mean_ms": 112.40384615384616,
+        "p95_ms": 127.49999999999999,
+        "mean_wait_ms": 1.9230769230769231,
+        "energy_j": 19.25,
+        "qos_percent": 100.0
+      }
+    ]
+  },
+  "evidence": [
+    "results/seeded_runs.csv",
+    "results/seeded_summary.csv",
+    "results/queue_comparison.csv",
+    "results/queue_on_timeline.csv",
+    "evidence/queue_on_decisions.json"
+  ],
+  "energy_model": "CPU units * illustrative watts per CPU * elapsed processing ms / 1000. No idle, network, memory, cooling or real measurements. Compare energy beside completed count."
+}

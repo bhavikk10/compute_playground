@@ -1,0 +1,2 @@
+from pathlib import Path
+p=Path('app.py');s=p.read_text().replace("'latency_first':'Lowest network delay','capacity_aware':'Keep more capacity free','energy_aware':'Balance energy and response'","'latency_first':'Lowest delay','capacity_aware':'Spare capacity','energy_aware':'Energy balance'").replace("**Move simulated time** — processing finishes only when you advance or play the clock.","**Try sample jobs or move time** — processing finishes when you advance or play the clock.");p.write_text(s)

@@ -1,0 +1,159 @@
+[
+  {
+    "experiment": "Policy comparison",
+    "setup": "18 identical tasks; fresh state; two policies",
+    "expected": "Different selections; compare acceptance and latency",
+    "actual": [
+      {
+        "experiment": "baseline_latency",
+        "policy": "latency_first",
+        "total": 18,
+        "completed": 18,
+        "rejected": 0,
+        "cancelled": 0,
+        "mean_ms": 68.06,
+        "p95_ms": 107.25,
+        "qos_percent": 100.0,
+        "Edge_tasks": 2,
+        "Edge_peak_cpu_pct": 100.0,
+        "Edge_peak_ram_pct": 100.0,
+        "Fog_tasks": 15,
+        "Fog_peak_cpu_pct": 100.0,
+        "Fog_peak_ram_pct": 75.0,
+        "Cloud_tasks": 1,
+        "Cloud_peak_cpu_pct": 12.5,
+        "Cloud_peak_ram_pct": 6.25
+      },
+      {
+        "experiment": "baseline_capacity",
+        "policy": "capacity_aware",
+        "total": 18,
+        "completed": 18,
+        "rejected": 0,
+        "cancelled": 0,
+        "mean_ms": 89.17,
+        "p95_ms": 125.0,
+        "qos_percent": 100.0,
+        "Edge_tasks": 0,
+        "Edge_peak_cpu_pct": 0.0,
+        "Edge_peak_ram_pct": 0.0,
+        "Fog_tasks": 9,
+        "Fog_peak_cpu_pct": 41.67,
+        "Fog_peak_ram_pct": 37.5,
+        "Cloud_tasks": 9,
+        "Cloud_peak_cpu_pct": 34.38,
+        "Cloud_peak_ram_pct": 15.62
+      }
+    ],
+    "evidence": "results/summary.csv and scenario task/utilization CSVs"
+  },
+  {
+    "experiment": "Overload",
+    "setup": "20 simultaneous tasks, each 4 CPU / 4 GB",
+    "expected": "Fallback to Fog and Cloud; reject beyond capacity",
+    "actual": [
+      {
+        "experiment": "overload",
+        "policy": "latency_first",
+        "total": 20,
+        "completed": 12,
+        "rejected": 8,
+        "cancelled": 0,
+        "mean_ms": 110.83,
+        "p95_ms": 125.0,
+        "qos_percent": 100.0,
+        "Edge_tasks": 1,
+        "Edge_peak_cpu_pct": 100.0,
+        "Edge_peak_ram_pct": 100.0,
+        "Fog_tasks": 3,
+        "Fog_peak_cpu_pct": 100.0,
+        "Fog_peak_ram_pct": 75.0,
+        "Cloud_tasks": 8,
+        "Cloud_peak_cpu_pct": 100.0,
+        "Cloud_peak_ram_pct": 50.0
+      }
+    ],
+    "evidence": "results/summary.csv and scenario task/utilization CSVs"
+  },
+  {
+    "experiment": "Capacity change",
+    "setup": "Edge CPU/RAM 4/4 to 12/12; same workload",
+    "expected": "Placement and admission may change",
+    "actual": [
+      {
+        "experiment": "capacity_increase",
+        "policy": "latency_first",
+        "total": 18,
+        "completed": 18,
+        "rejected": 0,
+        "cancelled": 0,
+        "mean_ms": 70.56,
+        "p95_ms": 105.0,
+        "qos_percent": 100.0,
+        "Edge_tasks": 8,
+        "Edge_peak_cpu_pct": 100.0,
+        "Edge_peak_ram_pct": 91.67,
+        "Fog_tasks": 10,
+        "Fog_peak_cpu_pct": 100.0,
+        "Fog_peak_ram_pct": 75.0,
+        "Cloud_tasks": 0,
+        "Cloud_peak_cpu_pct": 0.0,
+        "Cloud_peak_ram_pct": 0.0
+      }
+    ],
+    "evidence": "results/summary.csv and scenario task/utilization CSVs"
+  },
+  {
+    "experiment": "Latency change",
+    "setup": "Edge delay 5 to 90 ms; same workload",
+    "expected": "High-sensitivity tasks cannot use Edge",
+    "actual": [
+      {
+        "experiment": "latency_increase",
+        "policy": "latency_first",
+        "total": 18,
+        "completed": 18,
+        "rejected": 0,
+        "cancelled": 0,
+        "mean_ms": 76.39,
+        "p95_ms": 170.0,
+        "qos_percent": 100.0,
+        "Edge_tasks": 2,
+        "Edge_peak_cpu_pct": 100.0,
+        "Edge_peak_ram_pct": 100.0,
+        "Fog_tasks": 15,
+        "Fog_peak_cpu_pct": 100.0,
+        "Fog_peak_ram_pct": 75.0,
+        "Cloud_tasks": 1,
+        "Cloud_peak_cpu_pct": 12.5,
+        "Cloud_peak_ram_pct": 6.25
+      }
+    ],
+    "evidence": "results/summary.csv and scenario task/utilization CSVs"
+  },
+  {
+    "experiment": "Tenant isolation",
+    "setup": "Tenant B views/stops Tenant A task",
+    "expected": "Both denied without resource mutation",
+    "actual": [
+      {
+        "action": "view",
+        "outcome": "DENIED",
+        "message": "Access denied: record belongs to another tenant"
+      },
+      {
+        "action": "stop",
+        "outcome": "DENIED",
+        "message": "Access denied: record belongs to another tenant"
+      }
+    ],
+    "evidence": "evidence/security.json"
+  },
+  {
+    "experiment": "VM lifecycle",
+    "setup": "Stop running VM twice, advance past completion",
+    "expected": "Release exactly once; task cancelled",
+    "actual": "PASS: resources restored exactly once",
+    "evidence": "evidence/lifecycle.json"
+  }
+]

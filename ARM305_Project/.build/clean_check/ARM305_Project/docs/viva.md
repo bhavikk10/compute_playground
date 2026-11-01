@@ -1,0 +1,13 @@
+# Viva preparation
+- Edge, Fog and Cloud differ here by capacity, network delay and processing speed. These are chosen model parameters.
+- A simulated VM is a resource reservation and lifecycle record, not an operating-system guest.
+- Both policies filter CPU/RAM and latency budgets. Their selection objectives differ.
+- Capacity-aware policy can preserve headroom while increasing response time. No universal optimality is claimed.
+- A large node cannot accept a task whose predicted response violates its budget.
+- Virtual time lets experiments run instantly and repeat exactly.
+- Release happens once on completion or cancellation. Stopping a stopped VM is a no-op.
+- Tenant authorization is enforced in engine methods, independent of visible table filtering.
+- Peak CPU differs from final CPU: completed workloads leave zero final allocation.
+- QoS compliance must be read beside rejection rate because admission rejects unsuitable tasks.
+- Real systems add queues, contention, jitter, VM overhead, failures and authenticated sessions.
+- Increasing Edge capacity can increase mean response: slower Edge processing can replace faster Fog execution.

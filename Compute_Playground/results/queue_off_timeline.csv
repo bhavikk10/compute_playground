@@ -1,0 +1,41 @@
+time_ms,task_id,tenant,event,node,detail
+0.0,fill-00,tenant_a,arrived,,
+0.0,fill-00,tenant_a,allocated,Edge,"Edge selected; latency_first score=5.0000. Edge: capacity=pass, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+0.0,fill-01,tenant_a,arrived,,
+0.0,fill-01,tenant_a,allocated,Fog,"Fog selected; latency_first score=25.0000. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+0.0,fill-02,tenant_a,arrived,,
+0.0,fill-02,tenant_a,allocated,Fog,"Fog selected; latency_first score=25.0000. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+0.0,fill-03,tenant_a,arrived,,
+0.0,fill-03,tenant_a,allocated,Fog,"Fog selected; latency_first score=25.0000. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+0.0,fill-04,tenant_a,arrived,,
+0.0,fill-04,tenant_a,allocated,Cloud,"Cloud selected; latency_first score=100.0000. Edge: capacity=fail, QoS=pass; Fog: capacity=fail, QoS=pass; Cloud: capacity=pass, QoS=pass"
+0.0,fill-05,tenant_a,arrived,,
+0.0,fill-05,tenant_a,allocated,Cloud,"Cloud selected; latency_first score=100.0000. Edge: capacity=fail, QoS=pass; Fog: capacity=fail, QoS=pass; Cloud: capacity=pass, QoS=pass"
+0.0,fill-06,tenant_a,arrived,,
+0.0,fill-06,tenant_a,allocated,Cloud,"Cloud selected; latency_first score=100.0000. Edge: capacity=fail, QoS=pass; Fog: capacity=fail, QoS=pass; Cloud: capacity=pass, QoS=pass"
+0.0,fill-07,tenant_a,arrived,,
+0.0,fill-07,tenant_a,allocated,Cloud,"Cloud selected; latency_first score=100.0000. Edge: capacity=fail, QoS=pass; Fog: capacity=fail, QoS=pass; Cloud: capacity=pass, QoS=pass"
+0.0,fill-08,tenant_a,arrived,,
+0.0,fill-08,tenant_a,allocated,Cloud,"Cloud selected; latency_first score=100.0000. Edge: capacity=fail, QoS=pass; Fog: capacity=fail, QoS=pass; Cloud: capacity=pass, QoS=pass"
+0.0,fill-09,tenant_a,arrived,,
+0.0,fill-09,tenant_a,allocated,Cloud,"Cloud selected; latency_first score=100.0000. Edge: capacity=fail, QoS=pass; Fog: capacity=fail, QoS=pass; Cloud: capacity=pass, QoS=pass"
+0.0,fill-10,tenant_a,arrived,,
+0.0,fill-10,tenant_a,allocated,Cloud,"Cloud selected; latency_first score=100.0000. Edge: capacity=fail, QoS=pass; Fog: capacity=fail, QoS=pass; Cloud: capacity=pass, QoS=pass"
+0.0,fill-11,tenant_a,arrived,,
+0.0,fill-11,tenant_a,allocated,Cloud,"Cloud selected; latency_first score=100.0000. Edge: capacity=fail, QoS=pass; Fog: capacity=fail, QoS=pass; Cloud: capacity=pass, QoS=pass"
+0.0,urgent-expiry,tenant_a,arrived,,
+0.0,urgent-expiry,tenant_a,rejected,,"Edge: capacity=fail, QoS=pass; Fog: capacity=fail, QoS=pass; Cloud: capacity=fail, QoS=fail"
+0.0,wait-success,tenant_a,arrived,,
+0.0,wait-success,tenant_a,rejected,,"Edge: capacity=fail, QoS=pass; Fog: capacity=fail, QoS=pass; Cloud: capacity=fail, QoS=pass"
+25.0,fill-04,tenant_a,completed,Cloud,
+25.0,fill-05,tenant_a,completed,Cloud,
+25.0,fill-06,tenant_a,completed,Cloud,
+25.0,fill-07,tenant_a,completed,Cloud,
+25.0,fill-08,tenant_a,completed,Cloud,
+25.0,fill-09,tenant_a,completed,Cloud,
+25.0,fill-10,tenant_a,completed,Cloud,
+25.0,fill-11,tenant_a,completed,Cloud,
+50.0,fill-01,tenant_a,completed,Fog,
+50.0,fill-02,tenant_a,completed,Fog,
+50.0,fill-03,tenant_a,completed,Fog,
+100.0,fill-00,tenant_a,completed,Edge,

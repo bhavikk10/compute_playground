@@ -1,0 +1,7 @@
+{
+  "setup": "Headless Edge, local Streamlit application, deterministic queue demo; interactive README opened offline",
+  "expected": "Playback advances virtual time; tasks finish or expire; explorer and charts render; cross-tenant lookup is denied; book search, anchors and allocation toy work",
+  "actual": "PASS: playback, queue/timeline, explorer, experiment UI, security, book search/links/toy",
+  "evidence": "evidence/screenshots/ and .build/browser.mjs in the authoring workspace",
+  "limits": "UI smoke checks; no real infrastructure or energy measurements"
+}

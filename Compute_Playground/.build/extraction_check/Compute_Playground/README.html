@@ -1,0 +1,680 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Compute Playground • The interactive book</title>
+<style>
+:root{color-scheme:light;--ink:#213c43;--paper:#fffdf8;--accent:#186960}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.7 Georgia,serif}aside{position:fixed;inset:0 auto 0 0;width:275px;padding:28px 22px;background:#eef2eb;overflow:auto;font:14px/1.6 system-ui}aside strong{display:block;font-size:21px;margin-bottom:6px}aside a{display:block;padding:6px 0}aside label{display:block;margin-top:16px}aside input{width:100%;padding:10px;margin:16px 0 8px;border:1px solid #8da39a;border-radius:4px}main{margin-left:275px;max-width:1120px;padding:40px 70px 100px}h1,h2,h3,button,label,input,summary{font-family:system-ui}h1{font-size:44px;line-height:1.1}h2{font-size:29px;line-height:1.3;border-top:1px solid #c9d4cb;padding-top:30px;margin-top:45px}h3{font-size:21px}a{color:#14675f;text-underline-offset:3px}a:hover{color:#003b34}p{max-width:78ch}table{border-collapse:collapse;width:100%;font:14px/1.6 system-ui;display:block;overflow:auto}td,th{padding:10px;border-bottom:1px solid #d9e1da;text-align:left}th{background:#edf1e9}pre{overflow:auto;background:#edf1e9;padding:20px;font:13px/1.7 Consolas,monospace;position:relative}code{font-family:Consolas,monospace;font-size:.88em}details{padding:16px 20px;background:#f0f3eb;border-left:3px solid var(--accent);margin:20px 0}summary{cursor:pointer;font-weight:600}button{padding:10px 16px;background:#186960;color:white;border:0;border-radius:4px;font-size:15px;cursor:pointer;margin:8px 8px 8px 0}button:hover{background:#104d46}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #b06b16;outline-offset:3px}.copy{display:block;margin-left:auto!important;font-size:12px;padding:5px 10px;margin:0 0 8px 10px}img{max-width:100%;height:auto}#toy{padding:20px 26px;border:1px solid #a9bdb0;margin:26px 0}#toy label{display:inline-block;margin-right:20px;font-size:14px}#toy input{width:75px;padding:6px}output{display:block;font:600 18px/1.6 system-ui;margin:12px 0}.note{font:14px/1.6 system-ui;color:#52675e}.todo{list-style:none}.progress-check{width:18px;height:18px;vertical-align:middle;accent-color:#186960}.chapter{scroll-margin-top:20px}#search-status,#progress{font-size:13px}.quiz-answer{font-weight:bold}footer{margin-top:50px;font-size:14px}@media(max-width:850px){aside{position:static;width:auto}aside nav{display:none}main{margin:0;padding:25px}h1{font-size:35px}table{font-size:13px}}@media print{aside,button,#toy{display:none}main{margin:0;padding:0}.chapter{display:block!important}details{break-inside:avoid}}
+</style><aside><strong>Compute Playground</strong><span>CDEF Computing<br>The interactive field book</span><label for="search">Find a chapter</label><input id="search" type="search" placeholder="Try VM, CPU, security…"><div id="search-status" role="status"></div><div id="progress" role="status"></div><nav><a href="#choose-your-adventure">Choose your adventure</a><a href="#1-the-story">1. The story</a><a href="#2-our-tiny-dictionary">2. Our tiny dictionary</a><a href="#3-open-the-playground">3. Open the playground</a><a href="#4-your-first-job">4. Your first job</a><a href="#5-the-map-of-the-house">5. The map of the house</a><a href="#6-follow-one-job">6. Follow one job</a><a href="#7-how-the-chooser-thinks">7. How the chooser thinks</a><a href="#8-time-and-ownership">8. Time and ownership</a><a href="#9-be-a-scientist">9. Be a scientist</a><a href="#10-read-the-scoreboard">10. Read the scoreboard</a><a href="#11-when-something-goes-wrong">11. When something goes wrong</a><a href="#12-show-and-tell">12. Show and tell</a><a href="#13-the-bigger-playground">13. The bigger playground</a><a href="#14-could-we-plug-in-real-computers">14. Could we plug in real computers?</a></nav></aside><main><section id="toy" aria-labelledby="toy-title"><h2 id="toy-title">Try the idea before opening the app</h2><p>Edge has 4 pretend helpers and 4 GB of table space. Book a job, then stop it. The numbers change.</p><label>CPU per job <input id="toy-cpu" type="number" min="1" max="4" value="2"></label><label>RAM per job (GB) <input id="toy-ram" type="number" min="1" max="4" value="1"></label><br><button id="book">Book one job</button><button id="stop">Stop latest job</button><button id="reset">Reset toy</button><output id="toy-state" aria-live="polite"></output><p id="toy-message" role="status"></p><p class="note">This teaching toy only tracks one node. The Python simulator also models all three nodes, processing, placement policies, VMs and ownership. The book does not change the app.</p><details><summary>Prediction game: after booking two jobs needing 2 CPU each, can Edge take a third?</summary><p class="quiz-answer">No. Both jobs use all 4 CPU units. Stop one first to free 2 units.</p></details></section><section class="chapter"><h1 id="compute-playground">Compute Playground</h1>
+<p><strong>Subject: CDEF Computing</strong><br />
+<em>A little computer world where jobs find a place to work.</em></p>
+<p>Welcome! Imagine three pretend workshops. You give them jobs. Our Python program decides which workshop has enough room and can finish quickly enough. Then it keeps track of what is busy and what is free.</p>
+<p><strong>The computers are imaginary. The decisions and changing records are real Python logic.</strong> This project does not start a real server VM or reserve your laptop's CPU/RAM.</p>
+<p><a href="README.html">Open the interactive book</a> for search, expandable chapters, copy buttons, a working allocation toy, questions with answers, and a progress checklist. Download/extract the whole project first, then double-click <code>README.html</code>. It works offline, needs no Python, and explains the project; it does not control the simulator. This Markdown book works in a text editor or repository viewer too.</p>
+</section><section class="chapter"><h2 id="choose-your-adventure">Choose your adventure</h2>
+<table>
+<thead>
+<tr>
+<th>I want to…</th>
+<th>Go here</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Understand the idea without code</td>
+<td><a href="#1-the-story">1. The story</a></td>
+</tr>
+<tr>
+<td>Learn the words</td>
+<td><a href="#2-our-tiny-dictionary">2. Our tiny dictionary</a></td>
+</tr>
+<tr>
+<td>Run the application</td>
+<td><a href="#3-open-the-playground">3. Open the playground</a></td>
+</tr>
+<tr>
+<td>Try it with my own hands</td>
+<td><a href="#4-your-first-job">4. Your first job</a></td>
+</tr>
+<tr>
+<td>See every folder and file</td>
+<td><a href="#5-the-map-of-the-house">5. The map of the house</a></td>
+</tr>
+<tr>
+<td>Follow a job through the code</td>
+<td><a href="#6-follow-one-job">6. Follow one job</a></td>
+</tr>
+<tr>
+<td>Understand the choosing rules</td>
+<td><a href="#7-how-the-chooser-thinks">7. How the chooser thinks</a></td>
+</tr>
+<tr>
+<td>Understand time, VMs and ownership</td>
+<td><a href="#8-time-and-ownership">8. Time and ownership</a></td>
+</tr>
+<tr>
+<td>Repeat the experiments</td>
+<td><a href="#9-be-a-scientist">9. Be a scientist</a></td>
+</tr>
+<tr>
+<td>Read the numbers and pictures</td>
+<td><a href="#10-read-the-scoreboard">10. Read the scoreboard</a></td>
+</tr>
+<tr>
+<td>Fix a problem</td>
+<td><a href="#11-when-something-goes-wrong">11. When something goes wrong</a></td>
+</tr>
+<tr>
+<td>Try timelines, queues, seeded and energy experiments</td>
+<td><a href="#13-the-bigger-playground">13. The bigger playground</a></td>
+</tr>
+<tr>
+<td>Understand real-resource integration</td>
+<td><a href="#14-could-we-plug-in-real-computers">14. Could we plug in real computers?</a></td>
+</tr>
+<tr>
+<td>Prepare the presentation and viva</td>
+<td><a href="#12-show-and-tell">12. Show and tell</a></td>
+</tr>
+</tbody>
+</table>
+</section><section class="chapter"><h2 id="1-the-story">1. The story</h2>
+<p>Imagine you have a drawing to finish. You can take it to one of three workshops:</p>
+<table>
+<thead>
+<tr>
+<th>Workshop</th>
+<th>Computer name</th>
+<th style="text-align: right;">Helpers: CPU units</th>
+<th style="text-align: right;">Table space: RAM</th>
+<th style="text-align: right;">Travel delay</th>
+<th style="text-align: right;">Helper speed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Next door</td>
+<td>Edge</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4 GB</td>
+<td style="text-align: right;">5 ms</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>Around town</td>
+<td>Fog</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">16 GB</td>
+<td style="text-align: right;">25 ms</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>Far away</td>
+<td>Cloud</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">64 GB</td>
+<td style="text-align: right;">100 ms</td>
+<td style="text-align: right;">4</td>
+</tr>
+</tbody>
+</table>
+<p>A nearby workshop is quick to reach. A faraway workshop has more helpers and faster work. Nearby does not always mean the whole job finishes fastest!</p>
+<p>These numbers are <strong>our chosen pretend-world settings</strong>, not measurements of real computers. See the <a href="config/nodes.json">node settings</a>. The application actually starts from <code>DEFAULT_NODES</code> in <a href="simulator/engine.py">engine.py</a>; the JSON is an exported reference copy, not a live settings file.</p>
+<p>When a job takes 2 helpers from Edge, 2 helpers remain free. Another job needing 3 cannot fit there right now. When the first job finishes or stops, its helpers become free again. Nothing gets randomly printed to make that happen: the engine changes and checks its saved state.</p>
+<details><summary>Try a tiny question: Edge has 4 CPU units. A job takes 2. What remains?</summary>
+
+**2 CPU units.** If that VM stops, the 2 units return. Stopping it again gives back nothing extra.
+
+</details>
+
+<p><a href="#choose-your-adventure">Back to the adventure menu</a></p>
+</section><section class="chapter"><h2 id="2-our-tiny-dictionary">2. Our tiny dictionary</h2>
+<table>
+<thead>
+<tr>
+<th>Word</th>
+<th>Small-child explanation</th>
+<th>Exact meaning here</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Task</td>
+<td>A job card</td>
+<td>ID, owner, CPU, RAM, sensitivity, work and arrival time</td>
+</tr>
+<tr>
+<td>Node</td>
+<td>A workshop</td>
+<td>One simulated Edge, Fog or Cloud computer</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>Helpers doing work</td>
+<td>Abstract processing capacity reserved by a task</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>Space on a table</td>
+<td>Reserved memory capacity, measured in GB</td>
+</tr>
+<tr>
+<td>Latency</td>
+<td>Waiting for the trip</td>
+<td>Fixed network delay included in response time</td>
+</tr>
+<tr>
+<td>Work</td>
+<td>How big the job is</td>
+<td>CPU-ms of work at speed 1</td>
+</tr>
+<tr>
+<td>VM</td>
+<td>A booking ticket</td>
+<td>A Python record reserving CPU/RAM on a node</td>
+</tr>
+<tr>
+<td>Policy</td>
+<td>A choosing rule</td>
+<td>Algorithm selecting an eligible node</td>
+</tr>
+<tr>
+<td>Tenant</td>
+<td>The name on your toy box</td>
+<td>Demo owner <code>tenant_a</code> or <code>tenant_b</code></td>
+</tr>
+<tr>
+<td>Utilization</td>
+<td>How much is busy</td>
+<td>Used capacity divided by total capacity</td>
+</tr>
+<tr>
+<td>QoS</td>
+<td>Did we meet our promise?</td>
+<td>Predicted response within the sensitivity budget</td>
+</tr>
+<tr>
+<td>CSV</td>
+<td>A sheet of rows and columns</td>
+<td>Results file you can open in a spreadsheet</td>
+</tr>
+<tr>
+<td>Deterministic</td>
+<td>Same game, same ending</td>
+<td>Identical inputs and starting state give identical outputs</td>
+</tr>
+</tbody>
+</table>
+</section><section class="chapter"><h2 id="3-open-the-playground">3. Open the playground</h2>
+<p>You need <strong>Python 3.10 or newer</strong> and an internet connection for installing packages the first time. After installation, the simulator runs locally.</p>
+<ol>
+<li>Extract the submission ZIP. Open the <code>Compute_Playground</code> folder inside it.</li>
+<li>Open a terminal <strong>inside that folder</strong>. You should be able to see <code>app.py</code> and <code>requirements.txt</code>.</li>
+<li>On Windows, run each line in order:</li>
+</ol>
+<pre><code class="language-powershell">python -m venv .venv
+.venv\Scripts\python.exe -m pip install -r requirements.txt
+.venv\Scripts\python.exe -m streamlit run app.py
+</code></pre>
+<p>What did those lines do?</p>
+<ul>
+<li><code>venv</code> makes a little private toolbox called <code>.venv</code>.</li>
+<li><code>pip install</code> fills the toolbox with the packages listed in <a href="requirements.txt">requirements.txt</a>.</li>
+<li><code>streamlit run</code> opens the application built by <a href="app.py">app.py</a>.</li>
+</ul>
+<p>Open the local address printed by Streamlit, usually <code>http://localhost:8501</code>. Keep that terminal open. Press <strong>Ctrl+C</strong> in it to stop the application. On a later visit, only the last command is needed.</p>
+<details><summary>macOS / Linux commands</summary>
+
+
+<pre><code class="language-bash">python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -m streamlit run app.py
+</code></pre>
+
+
+Use `.venv/bin/python` in place of `.venv\Scripts\python.exe` in the Windows commands elsewhere in this book.
+
+</details>
+
+<p>No paid cloud, Docker, database, hypervisor, API key or real VM is needed. The application lives in one Python process. Closing/restarting its session can lose live simulation state; exported CSV files stay on disk.</p>
+</section><section class="chapter"><h2 id="4-your-first-job">4. Your first job</h2>
+<p><strong>Yes, you can add your own tasks.</strong> The first app tab is <strong>Submit task</strong>. Enter any unique task name and your own CPU, RAM, sensitivity and work values. Each submission belongs to the selected tenant. You can add multiple tasks; the engine decides whether to allocate, queue or reject each one based on the current state.</p>
+<p>The app now includes a <strong>Start here</strong> walkthrough, question-mark help beside the inputs, friendly rule names and a submission receipt showing the selected server and response calculation. The task table shows the most useful columns first, with full technical fields in an expander. Generated-workload settings and Edge server settings are expandable sidebar sections. Pending rule/server changes show a warning until reset.</p>
+<p>Start with a fresh simulation using <strong>Reset with these settings</strong>. Keep the first policy, <code>latency_first</code>, selected and use <code>tenant_a</code>.</p>
+<ol>
+<li>Open <strong>Submit task</strong>.</li>
+<li>Enter ID <code>my-first-job</code>, CPU <strong>2</strong>, RAM <strong>1</strong>, sensitivity <strong>high</strong>, work <strong>80</strong>.</li>
+<li>Press <strong>Place task</strong>.</li>
+<li>Edge should be selected. It uses <strong>2 of 4 CPU</strong> and <strong>1 of 4 GB</strong>.</li>
+<li>Its work time is <code>80 / (2 × 1) = 40 ms</code>. Its predicted response is <code>40 + 5 = 45 ms</code>.</li>
+<li>Look at <strong>Tasks and VMs</strong>. Find your job and its booking ticket, <code>vm-my-first-job</code>.</li>
+<li>Press <strong>Advance 50 ms</strong>. The task becomes <code>completed</code> and its resources return.</li>
+</ol>
+<p>To try stopping instead: reset, submit the same job again, select its running VM under <strong>Tasks and VMs</strong>, and press <strong>Stop selected VM</strong> before advancing time. Its task becomes <code>cancelled</code> and the VM becomes <code>stopped</code>.</p>
+<details><summary>Why do I see only nine tasks after loading eighteen?</summary>
+
+The sample contains nine tasks belonging to each of two tenants. The task and VM tables show only the current tenant's records. Node resource bars show shared totals. The sample loader also advances to 100 ms, so some jobs have already finished by the time loading ends.
+
+</details>
+
+</section><section class="chapter"><h2 id="5-the-map-of-the-house">5. The map of the house</h2>
+<p>Each folder is a room. Each file has a job. The links below open the real files.</p>
+<pre><code class="language-text">Compute_Playground/
+  README.md                    This book in Markdown
+  README.html                  The interactive offline edition
+  app.py                       Buttons, forms, tables and resource bars
+  requirements.txt             Packages needed to run the simulator
+  requirements-docs.txt        Extra package for rebuilding the PDF
+  build_report.py              Makes the report and architecture picture
+  simulator/
+    __init__.py                Marks this as a Python package
+    engine.py                  Tasks, three policies, queue, clock, VMs, energy, ownership
+    workloads.py               Repeatable workload generator using a private random seed
+  config/
+    nodes.json                 Exported node-settings reference
+  workloads/
+    baseline.json              Exported 18-task reference
+    overload.json              Exported 20-task reference
+  experiments/
+    run_experiments.py         Original scenarios plus the extension experiments
+    extended_experiments.py    Queue comparison and ten paired seeds across three policies
+  tests/
+    test_engine.py             Nine simulation correctness tests
+    test_ui.py                 Seven interface behaviour tests
+    test_extensions.py         Nine queue, deadline, energy and explorer checks
+  results/
+    summary.csv                Original five performance scenarios
+    seeded_runs.csv            Thirty paired seed/policy run records
+    seeded_summary.csv         Mean and sample SD across ten seeds
+    queue_comparison.csv       Same 14 tasks with queue off and on
+    seed7_&lt;policy&gt;_*.csv        Detailed seeded task, timeline and utilization traces
+    queue_&lt;on/off&gt;_*.csv        Detailed queue comparison traces
+    &lt;scenario&gt;_tasks.csv        Decisions and predicted response for every task
+    &lt;scenario&gt;_vms.csv          VM allocation and status records
+    &lt;scenario&gt;_utilization.csv  Resource snapshots at simulation events
+    charts/
+      placements.png           Where jobs went
+      qos.png                  Predicted mean and p95 response
+      utilization.png          Peak CPU/RAM use
+      seeded_comparison.png    Acceptance, response and hypothetical energy across seeds
+  evidence/
+    experiments.json           Original setup, expectation, outcome and evidence pointers
+    extensions.json            Seeded/queue setup, assumptions and actual outcomes
+    *_decisions.json           Node evaluations saved for queue and seed-7 traces
+    security.json              Denied view/stop attempts
+    lifecycle.json             Resource release after stopping twice
+    test_output.txt            Recorded automated test output
+    screenshots/               Pictures of the working interface
+  docs/
+    report.pdf                 Eight-page formal report
+    presentation.pptx          Seven-slide presentation
+    architecture.png           System diagram
+    demo_script.md             A five-minute demonstration route
+    viva.md                    Questions and talking points
+    team_details.md            Your actual team information goes here
+</code></pre>
+<h3 id="the-front-room-what-you-see">The front room: what you see</h3>
+<p><a href="app.py">app.py</a> draws the Streamlit interface. The sidebar chooses a demo identity, policy and Edge settings. Tabs show tasks/VMs, custom submission, saved experiments and protected-record access. It keeps an <code>Engine</code> in Streamlit session state, so ordinary button clicks work on the same simulation.</p>
+<h3 id="the-engine-room-what-makes-it-work">The engine room: what makes it work</h3>
+<p><a href="simulator/engine.py">simulator/engine.py</a> owns the rules and state. <code>Task</code> is a job card; <code>Engine</code> is the organiser. This file handles capacity checks, policy scores, resource reservations, VM creation/stopping, completion events and tenant ownership checks. It works without Streamlit too.</p>
+<h3 id="the-scientists-room">The scientist's room</h3>
+<p><a href="experiments/run_experiments.py">experiments/run_experiments.py</a> defines <code>workload()</code> and the overload workload, starts fresh engines, runs comparisons, writes CSV/JSON, and draws charts using matplotlib. <strong>Edit that Python file to change generated experimental workloads.</strong> The JSON workload files are exported reference copies; the runner does not read edits to them back in.</p>
+<h3 id="the-checking-room">The checking room</h3>
+<p><a href="tests/test_engine.py">test_engine.py</a> checks accounting bounds, completion, fallback/rejection, security, repeated stopping, fractional resources, invalid input, repeatability and policy differences across nine tests. <a href="tests/test_ui.py">test_ui.py</a> checks sample loading/security and custom-task/sample-ID collisions across seven tests, including the custom-submission receipt. The extension suite adds nine checks for waiting, deadlines, energy, reproducibility and protected explorer data.</p>
+<h3 id="the-scoreboard-room">The scoreboard room</h3>
+<p><a href="results/summary.csv">summary.csv</a> is the quick comparison. Scenario task files explain each decision. VM files show booking tickets. Utilization files preserve busy moments even though the final system may be idle. The <a href="results/charts/placements.png">charts</a> turn those recorded numbers into pictures.</p>
+<h3 id="the-teachers-folder">The teacher's folder</h3>
+<p><a href="docs/report.pdf">report.pdf</a> explains the model and findings. <a href="docs/presentation.pptx">presentation.pptx</a> is the seven-slide summary. <a href="docs/architecture.png">architecture.png</a> shows how the parts connect. <a href="docs/demo_script.md">demo_script.md</a>, <a href="docs/viva.md">viva.md</a> and <a href="docs/team_details.md">team_details.md</a> help you prepare your own explanation.</p>
+<p><a href="#choose-your-adventure">Back to the adventure menu</a></p>
+</section><section class="chapter"><h2 id="6-follow-one-job">6. Follow one job</h2>
+<pre><code class="language-text">You fill in a job card in app.py
+  -&gt; Engine.submit(Task(...)) in simulator/engine.py
+  -&gt; validate the card and move to its arrival time
+  -&gt; check CPU, RAM and the response promise on each node
+  -&gt; choose an eligible node using the selected policy
+  -&gt; save a task decision and a VM booking
+  -&gt; update used CPU/RAM and save resource snapshots
+  -&gt; app.py displays the returned state
+  -&gt; Engine.advance(...) finishes due jobs and releases reservations
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Engine function</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>submit(task)</code></td>
+<td>Validates, advances time, selects/rejects, reserves and records</td>
+</tr>
+<tr>
+<td><code>snapshot()</code></td>
+<td>Returns a copy of shared node resource state</td>
+</tr>
+<tr>
+<td><code>records(tenant)</code></td>
+<td>Returns only that tenant's task records</td>
+</tr>
+<tr>
+<td><code>vms(tenant)</code></td>
+<td>Returns only that tenant's VM records</td>
+</tr>
+<tr>
+<td><code>get_task(tenant, id)</code></td>
+<td>Returns one task after checking its owner</td>
+</tr>
+<tr>
+<td><code>stop(tenant, vm_id)</code></td>
+<td>Checks owner and releases a running VM exactly once</td>
+</tr>
+<tr>
+<td><code>advance(to_ms)</code></td>
+<td>Moves to an absolute virtual time and finishes due work</td>
+</tr>
+<tr>
+<td><code>run_until_complete()</code></td>
+<td>Advances to the latest running task's compute finish</td>
+</tr>
+<tr>
+<td><code>_release(...)</code></td>
+<td>Internal helper that changes status and restores capacity</td>
+</tr>
+</tbody>
+</table>
+<p>The underscore in <code>_release</code> says “engine helper”; ordinary application code uses the public methods instead.</p>
+</section><section class="chapter"><h2 id="7-how-the-chooser-thinks">7. How the chooser thinks</h2>
+<p>First, all three policies ask three questions: enough free CPU? enough free RAM? predicted response within the promise? A task's sensitivity chooses its promise: <strong>high = 60 ms</strong>, <strong>medium = 180 ms</strong>, <strong>low = 600 ms</strong>. High means the task cares a lot about delay, not that it may wait longer.</p>
+<p><strong>Lowest latency first:</strong> among eligible nodes, choose the smallest network delay. It often picks a nearby node. It does not directly minimize the whole response time.</p>
+<p><strong>Capacity aware:</strong> among eligible nodes, balance response time against how full that node would become. Low-sensitivity tasks care more about leaving headroom. The exact rule in <a href="simulator/engine.py">engine.py</a> is:</p>
+<pre><code class="language-text">processing_ms = work / (task_cpu × node_speed)
+response_ms = wait_ms + processing_ms + network_delay_ms
+U = max(projected_used_CPU / total_CPU, projected_used_RAM / total_RAM)
+score = w × (response_ms / budget_ms) + (1 − w) × U
+w = 0.8 for high, 0.5 for medium, 0.2 for low
+</code></pre>
+<p>Pick the lowest score. Node name breaks ties, making the result repeatable. If no node passes, reject the task and explain each failed capacity/QoS check. With the default queue setting off, there is no waiting queue. With it on, temporarily blocked but otherwise feasible work can wait; chapter 13 explains the rules.</p>
+<details><summary>Does “capacity aware” always win?</summary>
+
+No. In our baseline, it leaves more spare Fog capacity but increases predicted mean response. A good report explains the trade-off rather than hiding the slower response.
+
+</details>
+
+</section><section class="chapter"><h2 id="8-time-and-ownership">8. Time and ownership</h2>
+<h3 id="a-pretend-clock-with-real-consequences">A pretend clock with real consequences</h3>
+<p>No actual sleeping is needed. Moving the virtual clock makes the engine process due completions. Resources stay reserved for <strong>processing time</strong>. Network delay adds to predicted response, but does not keep CPU/RAM reserved. <code>completed</code> means compute completion. Events at the same timestamp release finished work before new arrivals are placed.</p>
+<p><code>advance(50)</code> means “go to time 50”, not “add 50”. The UI's <strong>Advance 50 ms</strong> button adds 50 to the current clock for you.</p>
+<p>A VM has <code>running</code>, <code>completed</code> or <code>stopped</code> status. Tasks have <code>queued</code>, <code>running</code>, <code>completed</code>, <code>rejected</code>, <code>expired</code> or <code>cancelled</code> status. Rejected tasks never get a VM. Stopping an active VM cancels its task and restores capacity. Repeating the stop is a no-op.</p>
+<h3 id="your-toy-box-has-your-name-on-it">Your toy box has your name on it</h3>
+<p>Select <code>tenant_a</code>, load samples, then switch to <code>tenant_b</code>. Under <strong>Security demonstration</strong>, request <code>T01</code>, which belongs to tenant A. Try <strong>View task</strong>, then <strong>Stop VM</strong>. Both must say <strong>Access denied</strong>. The engine checks ownership; the UI does more than merely hide rows.</p>
+<p>The identity selector is intentionally a classroom impersonation tool. It is not a real login system. Published experiment files contain synthetic records from both tenants so the class can inspect them. Shared node utilization is public. No passwords or sensitive data are used.</p>
+</section><section class="chapter"><h2 id="9-be-a-scientist">9. Be a scientist</h2>
+<p>A fair experiment is like racing toy cars from the same starting line. Each performance scenario uses a fresh engine.</p>
+<p>From the extracted project folder, after installing packages:</p>
+<pre><code class="language-powershell">.venv\Scripts\python.exe -m unittest discover -s tests -v
+.venv\Scripts\python.exe -m experiments.run_experiments
+</code></pre>
+<p>The first command runs 25 tests. The second recreates the original and extended experiments. It overwrites generated files in <code>results/</code>, some JSON evidence in <code>evidence/</code>, and the exported configuration/workloads. It does not refresh screenshots or <code>test_output.txt</code> automatically.</p>
+<table>
+<thead>
+<tr>
+<th>Experiment</th>
+<th>The question</th>
+<th>Look here</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Policy comparison</td>
+<td>What changes when the chooser changes?</td>
+<td><a href="results/baseline_latency_tasks.csv">Latency tasks</a>, <a href="results/baseline_capacity_tasks.csv">capacity-aware tasks</a></td>
+</tr>
+<tr>
+<td>Overload</td>
+<td>What happens when too many jobs arrive together?</td>
+<td><a href="results/overload_tasks.csv">Overload tasks</a></td>
+</tr>
+<tr>
+<td>Capacity increase</td>
+<td>What if Edge gets a bigger workshop?</td>
+<td><a href="results/capacity_increase_tasks.csv">Changed-capacity tasks</a></td>
+</tr>
+<tr>
+<td>Latency increase</td>
+<td>What if the trip to Edge gets slower?</td>
+<td><a href="results/latency_increase_tasks.csv">Changed-latency tasks</a></td>
+</tr>
+<tr>
+<td>Tenant isolation</td>
+<td>Can B open or stop A's job?</td>
+<td><a href="evidence/security.json">Security evidence</a></td>
+</tr>
+<tr>
+<td>VM lifecycle</td>
+<td>Does stopping twice return helpers twice?</td>
+<td><a href="evidence/lifecycle.json">Lifecycle evidence</a></td>
+</tr>
+</tbody>
+</table>
+<p>Read <a href="evidence/experiments.json">experiments.json</a> for setup, expected outcome, actual outcome and evidence pointers. There are five performance rows because policy comparison needs two runs, plus security and lifecycle evidence.</p>
+<p>Want to change the model? Edit <code>DEFAULT_NODES</code>, <code>BUDGETS</code> or scoring weights in <a href="simulator/engine.py">engine.py</a>. For a quick UI experiment, change the sidebar settings and <strong>reset</strong>. Sidebar changes affect Edge only. Regenerate experiments and then rebuild the report if model changes make saved results stale.</p>
+<details><summary>How do I rebuild the formal report?</summary>
+
+
+<pre><code class="language-powershell">.venv\Scripts\python.exe -m pip install -r requirements-docs.txt
+.venv\Scripts\python.exe build_report.py
+</code></pre>
+
+
+[build_report.py](build_report.py) reads saved results and makes `docs/report.pdf` and `docs/architecture.png`. It does not regenerate experiments or the PowerPoint. The PowerPoint is an editable submission artifact; after changing experimental results, update its numbers yourself too.
+
+</details>
+
+</section><section class="chapter"><h2 id="10-read-the-scoreboard">10. Read the scoreboard</h2>
+<p>These are the included reference results, from <a href="results/summary.csv">summary.csv</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Run</th>
+<th style="text-align: right;">Completed / submitted</th>
+<th style="text-align: right;">Rejected</th>
+<th style="text-align: right;">Mean predicted response</th>
+<th style="text-align: right;">p95</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lowest latency first</td>
+<td style="text-align: right;">18 / 18</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">68.06 ms</td>
+<td style="text-align: right;">107.25 ms</td>
+</tr>
+<tr>
+<td>Capacity aware</td>
+<td style="text-align: right;">18 / 18</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">89.17 ms</td>
+<td style="text-align: right;">125.00 ms</td>
+</tr>
+<tr>
+<td>Overload</td>
+<td style="text-align: right;">12 / 20</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">110.83 ms</td>
+<td style="text-align: right;">125.00 ms</td>
+</tr>
+<tr>
+<td>Bigger Edge</td>
+<td style="text-align: right;">18 / 18</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">70.56 ms</td>
+<td style="text-align: right;">105.00 ms</td>
+</tr>
+<tr>
+<td>Slower Edge trip</td>
+<td style="text-align: right;">18 / 18</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">76.39 ms</td>
+<td style="text-align: right;">170.00 ms</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mean</strong> is the average. <strong>p95</strong> is a value near the slower end of the completed tasks' predicted response times, calculated using linear interpolation. <strong>Peak utilization</strong> is the busiest recorded moment, not the empty moment after all work ends. Each node's peak can happen at a different time.</p>
+<p>Capacity-aware reduces peak Fog CPU from <strong>100% to 41.67%</strong>, but response gets slower. A bigger Edge handles more jobs but can also raise mean response because its processing speed is lower. In the latency-change scenario, placement counts stay the same while response worsens. Report what actually happened, even when a count does not change.</p>
+<p>All completed predictions meet their budgets because admission checks reject unsuitable nodes first. Always read compliance beside rejections: rejecting difficult jobs can make compliance look perfect. Cancelled tasks have no successful measured response; their stored response is a prediction made at admission. The summary uses completed tasks only.</p>
+<p><img alt="Where jobs went" src="results/charts/placements.png" /></p>
+<p><a href="results/charts/qos.png">View response chart</a> · <a href="results/charts/utilization.png">View utilization chart</a></p>
+</section><section class="chapter"><h2 id="11-when-something-goes-wrong">11. When something goes wrong</h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>What to try</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>python</code> is not recognised</td>
+<td>Check your Python installation; on Windows try <code>py</code> instead of <code>python</code> when making the virtual environment</td>
+</tr>
+<tr>
+<td><code>No module named streamlit</code></td>
+<td>Install requirements using the same <code>.venv</code> Python used to run the app</td>
+</tr>
+<tr>
+<td><code>app.py</code> cannot be found</td>
+<td>Open the terminal inside the extracted project folder</td>
+</tr>
+<tr>
+<td>Nothing changes after editing sidebar settings</td>
+<td>Press <strong>Reset with these settings</strong></td>
+</tr>
+<tr>
+<td>Duplicate task ID</td>
+<td>Use a new ID or reset; sample IDs are <code>T01</code> to <code>T18</code></td>
+</tr>
+<tr>
+<td>Sample IDs already exist</td>
+<td>Reset before loading the sample workload</td>
+</tr>
+<tr>
+<td>Clock cannot go backward</td>
+<td>Use a future absolute time in engine code</td>
+</tr>
+<tr>
+<td>My task is rejected despite spare capacity</td>
+<td>Check the reason: CPU, RAM and response budget must all pass</td>
+</tr>
+<tr>
+<td>I cannot see another tenant's task</td>
+<td>That protection is expected; switch identities for your own records</td>
+</tr>
+<tr>
+<td>Final resource use is zero</td>
+<td>Tasks finished; inspect utilization CSVs for peak usage</td>
+</tr>
+<tr>
+<td>My JSON edits do nothing</td>
+<td>These are exported reference files; edit the Python definitions described in chapter 5</td>
+</tr>
+<tr>
+<td>The old app still appears</td>
+<td>Stop the old Streamlit process with Ctrl+C, then launch the updated project</td>
+</tr>
+</tbody>
+</table>
+<p>The model intentionally omits real VMs, network traffic, migrations, failures, contention slowdown and production authentication. Waiting queues and deadlines are now optional simulated features. It simulates resource reservations and uses a fixed performance formula.</p>
+</section><section class="chapter"><h2 id="12-show-and-tell">12. Show and tell</h2>
+<p>Use <a href="docs/demo_script.md">demo_script.md</a> for the five-minute route. Use <a href="docs/viva.md">viva.md</a> to practise explaining the whole system.</p>
+<p>Before submission:</p>
+<ul>
+<li class="todo"><label><input type="checkbox" class="progress-check"> Run the app from the README commands.</label></li>
+<li class="todo"><label><input type="checkbox" class="progress-check"> Submit and finish a task; explain the changing CPU/RAM values.</label></li>
+<li class="todo"><label><input type="checkbox" class="progress-check"> Stop a VM and explain why a second stop releases nothing.</label></li>
+<li class="todo"><label><input type="checkbox" class="progress-check"> Show a denied tenant-access attempt.</label></li>
+<li class="todo"><label><input type="checkbox" class="progress-check"> Run tests and experiments.</label></li>
+<li class="todo"><label><input type="checkbox" class="progress-check"> Explain one policy trade-off using a chart.</label></li>
+<li class="todo"><label><input type="checkbox" class="progress-check"> Read the <a href="docs/report.pdf">eight-page report</a> and <a href="docs/presentation.pptx">seven-slide presentation</a>.</label></li>
+<li class="todo"><label><input type="checkbox" class="progress-check"> Fill in actual names, roll numbers and truthful contributions in <a href="docs/team_details.md">team_details.md</a>.</label></li>
+<li class="todo"><label><input type="checkbox" class="progress-check"> Make sure the final ZIP contains the updated files.</label></li>
+</ul>
+<p><strong>You understand the project when you can tell this story:</strong> a job arrives, the chooser checks its needs, a workshop reserves space, a booking ticket tracks the work, the clock finishes it, and the space becomes free again.</p>
+<p><a href="#compute-playground">Return to the start</a></p>
+</section><section class="chapter"><h2 id="13-the-bigger-playground">13. The bigger playground</h2>
+<h3 id="watch-the-story-happen">Watch the story happen</h3>
+<p>Press <strong>Schedule seeded workload</strong>, then <strong>Play timeline</strong>. The program delivers future job cards at their saved arrival times and advances 20 virtual ms each second. This is a visual playback speed, not a real hardware clock. <strong>Pause timeline</strong>, <strong>Advance 50 ms</strong> and <strong>Run until complete</strong> give manual control too. Reset clears scheduled work. Use <strong>Timeline</strong> to see only your tenant's jobs: grey hatch means waiting, filled blue means elapsed processing and outlined blue means remaining planned processing. The event table records arrivals, allocation, completion, rejection, expiry and cancellation. Export it with <strong>Export my timeline</strong>.</p>
+<h3 id="the-waiting-bench">The waiting bench</h3>
+<p>Imagine all helpers are busy. Instead of immediately sending every new job home, switch on <strong>Queue temporarily blocked tasks</strong>, then reset. A job waits only if some node could handle its CPU/RAM and response budget when empty. An impossibly large or intrinsically too-slow job is rejected straight away.</p>
+<p>The deadline is arrival time plus its sensitivity budget. Waiting counts: <code>response = wait + processing + network</code>. At resource-release events, the queue tries earliest deadlines first, breaking ties by arrival then ID. All completions at a timestamp release capacity before queued jobs are evaluated. Other feasible jobs can pass a blocked job, so the queue does not intentionally idle a suitable node. This is a deterministic heuristic, not a promise of fair or optimal scheduling. A queued job gets no VM and reserves nothing until admission. It expires at its deadline if it has not started. You can also cancel your own queued job from the Timeline tab.</p>
+<p>Press <strong>Load queue demonstration</strong> for a fresh queue-enabled world. Twelve low-sensitivity jobs fill the nodes. <code>wait-success</code> waits, starts on Cloud at 25 ms, and completes. <code>urgent-expiry</code> cannot meet its 60 ms response promise when suitable resources free up, so it expires. This button explicitly resets the world and enables its queue; the active queue status above the resource bars is authoritative. Sidebar settings apply again when you reset.</p>
+<details><summary>Does the queue mean a task can start at its deadline?</summary>
+
+No. The response budget includes its waiting, processing and network delay. Merely finding a free CPU just before the deadline is insufficient. Queued tasks still pass the same end-to-end QoS test before starting.
+
+</details>
+
+<h3 id="ask-the-chooser-why">Ask the chooser why</h3>
+<p>Open <strong>Decision explorer</strong> and select one of your tasks. Every evaluation attempt preserves a separate node table: available CPU/RAM, capacity and QoS checks, waiting, projected utilization, score, hypothetical energy and the selected node. Earlier snapshots do not change when the node later gets busy. <code>decisions(tenant, task_id)</code> checks ownership, just like task lookup. The explorer and timeline never expose another tenant's task records.</p>
+<h3 id="different-stories-reproducible-endings">Different stories, reproducible endings</h3>
+<p>A <strong>seed</strong> is like the page number of a shuffled storybook: seed 7 gives the same ordered cards every time. <a href="simulator/workloads.py">simulator/workloads.py</a> uses its own <code>random.Random(seed)</code> so unrelated random code cannot disturb it. Choose seed and task count in the sidebar, then schedule. Use another seed or reset before reusing its IDs.</p>
+<p>The experiment runner compares <strong>seeds 0–9</strong>, each with <strong>40 identical tasks for each of three policies</strong>, always using fresh engines with queues on. <a href="results/seeded_runs.csv">seeded_runs.csv</a> preserves all thirty runs. <a href="results/seeded_summary.csv">seeded_summary.csv</a> reports per-run means and sample standard deviations across seeds. The plotted whiskers are sample SD, not confidence intervals. Also compare the same 14-task demonstration with queue on and off in <a href="results/queue_comparison.csv">queue_comparison.csv</a>.</p>
+<h3 id="a-pretend-electricity-meter">A pretend electricity meter</h3>
+<p>Each node has an illustrative incremental power coefficient: Edge <strong>2</strong>, Fog <strong>6</strong>, Cloud <strong>18 watts per reserved CPU unit</strong>. These are invented teaching parameters, not measured hardware data. Estimated compute energy is:</p>
+<pre><code class="language-text">energy_j = reserved_CPU × watts_per_CPU × elapsed_processing_ms / 1000
+</code></pre>
+<p>Waiting uses zero incremental compute energy in this deliberately limited model. Stopping a VM charges only the processing time already consumed. Idle power, network energy, RAM, cooling and boot costs are omitted. A task also stores its full predicted processing energy at allocation, separately from consumed energy.</p>
+<p>The third policy, <code>energy_aware</code>, filters the same CPU/RAM/QoS constraints, then minimizes:</p>
+<pre><code class="language-text">energy_scale = largest full-task compute-energy estimate across the nodes
+score = 0.5 × (response / budget) + 0.5 × (task_energy / energy_scale)
+</code></pre>
+<p>This balances the hypothetical energy estimate against response; it does not minimize total system electricity or guarantee the lowest measured joules. Report energy beside completed counts: doing less work can use fewer joules.</p>
+<h3 id="what-actually-happened">What actually happened?</h3>
+<p>Across the ten paired seeds, average completed tasks out of 40 were <strong>32.8 latency-first</strong>, <strong>33.5 capacity-aware</strong>, and <strong>32.9 energy-aware</strong>. Average per-run response was <strong>74.30</strong>, <strong>89.40</strong>, and <strong>72.48 ms</strong>, respectively. Average modeled compute energy was <strong>16.232</strong>, <strong>21.424</strong>, and <strong>16.456 J</strong>. Energy-aware did not beat latency-first on total modeled energy, and their completed counts also differ. That is a result to explain, not hide.</p>
+<p>In the 14-task queue comparison, queue-off completed <strong>12</strong> and rejected <strong>2</strong>. Queue-on completed <strong>13</strong>, rejected <strong>0</strong>, and expired <strong>1</strong>. More completed work increased modeled energy from <strong>18.80 to 19.25 J</strong>. See <a href="evidence/extensions.json">extension evidence</a> for setup, expectation, actual outcomes and assumptions.</p>
+<p><img alt="Paired seeded comparison" src="results/charts/seeded_comparison.png" /></p>
+</section><section class="chapter"><h2 id="14-could-we-plug-in-real-computers">14. Could we plug in real computers?</h2>
+<p><strong>Not directly.</strong> Today a VM is a Python reservation record. Giving the application a real server address does not make that record launch real work. Think of the simulator as a toy workshop organiser: it knows how to choose a workshop, but it has no delivery truck or real tools attached.</p>
+<p>A future <strong>execution adapter</strong> would be the delivery truck. The following interface is a proposed design, not working code in this submission:</p>
+<table>
+<thead>
+<tr>
+<th>Adapter responsibility</th>
+<th>What a real implementation must do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Discover resources</td>
+<td>Obtain current node capacity, availability and health</td>
+</tr>
+<tr>
+<td>Launch work</td>
+<td>Map a supported task to a real process, container, VM or managed job</td>
+</tr>
+<tr>
+<td>Track identity</td>
+<td>Authenticate users and apply real resource permissions and quotas</td>
+</tr>
+<tr>
+<td>Observe execution</td>
+<td>Read actual job status, elapsed time, CPU/RAM and failures</td>
+</tr>
+<tr>
+<td>Stop work</td>
+<td>Stop the real job and confirm that its resources are released</td>
+</tr>
+<tr>
+<td>Reconcile state</td>
+<td>Recover after crashes and prevent simulated reservations drifting from reality</td>
+</tr>
+<tr>
+<td>Handle credentials</td>
+<td>Use an appropriate secret store instead of putting secrets in project files</td>
+</tr>
+</tbody>
+</table>
+<p>The placement rules, task data model and parts of the interface could be reused. The virtual-time engine, predicted work formula, VM records and demo identity selector would need adaptation or replacement. Real infrastructure would also introduce queues, provisioning delays, billing and failure modes outside the current model. No adapter, real cloud connection or hypervisor integration is implemented or claimed here.</p>
+<p><a href="#choose-your-adventure">Back to the adventure menu</a></p></section><footer>Compute Playground · CDEF Computing · Offline companion to README.md</footer></main><script>
+const chapters=[...document.querySelectorAll('.chapter')],q=document.querySelector('#search');q.addEventListener('input',()=>{const term=q.value.trim().toLowerCase();let n=0;chapters.forEach(c=>{const show=!term||c.textContent.toLowerCase().includes(term);c.hidden=!show;if(show)n++});document.querySelector('#search-status').textContent=term?`${n} matching sections. Clear search to see everything.`:''});document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{q.value='';chapters.forEach(c=>c.hidden=false);document.querySelector('#search-status').textContent=''}));
+document.querySelectorAll('pre').forEach(pre=>{const b=document.createElement('button');b.className='copy';b.textContent='Copy';b.type='button';b.setAttribute('aria-label','Copy code block');const code=pre.querySelector('code');b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(code.textContent);b.textContent='Copied'}catch(e){b.textContent='Select text to copy';const r=document.createRange();r.selectNodeContents(code);getSelection().removeAllRanges();getSelection().addRange(r)}setTimeout(()=>b.textContent='Copy',2000)});pre.prepend(b)});
+const checks=[...document.querySelectorAll('.progress-check')];let saved=[];try{saved=JSON.parse(localStorage.getItem('compute-playground-checks')||'[]')}catch(e){}function progress(){document.querySelector('#progress').textContent=`Show-and-tell checklist: ${checks.filter(c=>c.checked).length} / ${checks.length} complete`;}checks.forEach((c,i)=>{c.checked=!!saved[i];c.addEventListener('change',()=>{try{localStorage.setItem('compute-playground-checks',JSON.stringify(checks.map(c=>c.checked)))}catch(e){}progress()})});progress();
+let jobs=[];const state=document.querySelector('#toy-state'),message=document.querySelector('#toy-message');function draw(){state.textContent=`CPU free: ${4-jobs.reduce((s,j)=>s+j.cpu,0)} / 4 · RAM free: ${4-jobs.reduce((s,j)=>s+j.ram,0)} / 4 GB · Active jobs: ${jobs.length}`;}document.querySelector('#book').onclick=()=>{const cpu=Number(document.querySelector('#toy-cpu').value),ram=Number(document.querySelector('#toy-ram').value);if(!Number.isInteger(cpu)||!Number.isInteger(ram)||cpu<1||ram<1||cpu>4||ram>4){message.textContent='Choose whole numbers from 1 to 4.';return}if(jobs.reduce((s,j)=>s+j.cpu,0)+cpu>4||jobs.reduce((s,j)=>s+j.ram,0)+ram>4){message.textContent='Rejected: Edge does not have enough free CPU or RAM. Stop a job first.';return}jobs.push({cpu,ram});message.textContent='Booked! The resources stay reserved until you stop the job.';draw()};document.querySelector('#stop').onclick=()=>{message.textContent=jobs.pop()?'Stopped! Its CPU and RAM are free again.':'Nothing to stop. No extra resources are created.';draw()};document.querySelector('#reset').onclick=()=>{jobs=[];message.textContent='Fresh start.';draw()};draw();
+</script></html>

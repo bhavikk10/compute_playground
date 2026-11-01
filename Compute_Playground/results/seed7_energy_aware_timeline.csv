@@ -1,0 +1,117 @@
+time_ms,task_id,tenant,event,node,detail
+5.0,S7-001,tenant_a,arrived,,
+5.0,S7-001,tenant_a,allocated,Edge,"Edge selected; energy_aware score=0.4306. Edge: capacity=pass, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=fail"
+5.0,S7-002,tenant_b,arrived,,
+5.0,S7-002,tenant_b,allocated,Fog,"Fog selected; energy_aware score=0.7083. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=fail"
+25.0,S7-001,tenant_a,completed,Edge,
+25.0,S7-002,tenant_b,completed,Fog,
+25.0,S7-003,tenant_a,arrived,,
+25.0,S7-003,tenant_a,allocated,Edge,"Edge selected; energy_aware score=0.3097. Edge: capacity=pass, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+35.0,S7-004,tenant_b,arrived,,
+35.0,S7-004,tenant_b,allocated,Fog,"Fog selected; energy_aware score=0.4875. Edge: capacity=pass, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+45.0,S7-005,tenant_a,arrived,,
+45.0,S7-005,tenant_a,allocated,Fog,"Fog selected; energy_aware score=0.5208. Edge: capacity=pass, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+65.0,S7-006,tenant_b,arrived,,
+65.0,S7-006,tenant_b,allocated,Fog,"Fog selected; energy_aware score=0.3875. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+65.0,S7-007,tenant_a,arrived,,
+65.0,S7-007,tenant_a,allocated,Edge,"Edge selected; energy_aware score=0.3472. Edge: capacity=pass, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+85.0,S7-008,tenant_b,arrived,,
+85.0,S7-008,tenant_b,rejected,,"Edge: capacity=fail, QoS=fail; Fog: capacity=pass, QoS=fail; Cloud: capacity=pass, QoS=fail"
+85.0,S7-009,tenant_a,arrived,,
+85.0,S7-009,tenant_a,allocated,Fog,"Fog selected; energy_aware score=0.4583. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+105.0,S7-006,tenant_b,completed,Fog,
+105.0,S7-007,tenant_a,completed,Edge,
+105.0,S7-009,tenant_a,completed,Fog,
+105.0,S7-010,tenant_b,arrived,,
+105.0,S7-010,tenant_b,rejected,,"Edge: capacity=pass, QoS=fail; Fog: capacity=pass, QoS=fail; Cloud: capacity=pass, QoS=fail"
+115.0,S7-011,tenant_a,arrived,,
+115.0,S7-011,tenant_a,allocated,Fog,"Fog selected; energy_aware score=0.5139. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+125.0,S7-003,tenant_a,completed,Edge,
+125.0,S7-012,tenant_b,arrived,,
+125.0,S7-012,tenant_b,allocated,Edge,"Edge selected; energy_aware score=0.2486. Edge: capacity=pass, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+125.0,S7-013,tenant_a,arrived,,
+125.0,S7-013,tenant_a,rejected,,"Edge: capacity=fail, QoS=fail; Fog: capacity=pass, QoS=fail; Cloud: capacity=pass, QoS=fail"
+130.0,S7-014,tenant_b,arrived,,
+130.0,S7-014,tenant_b,allocated,Fog,"Fog selected; energy_aware score=0.5833. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=fail"
+130.0,S7-015,tenant_a,arrived,,
+130.0,S7-015,tenant_a,allocated,Cloud,"Cloud selected; energy_aware score=0.7917. Edge: capacity=fail, QoS=pass; Fog: capacity=fail, QoS=pass; Cloud: capacity=pass, QoS=pass"
+135.0,S7-014,tenant_b,completed,Fog,
+135.0,S7-015,tenant_a,completed,Cloud,
+140.0,S7-016,tenant_b,arrived,,
+140.0,S7-016,tenant_b,allocated,Fog,"Fog selected; energy_aware score=0.5833. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=fail"
+145.0,S7-016,tenant_b,completed,Fog,
+151.66666666666666,S7-012,tenant_b,completed,Edge,
+155.0,S7-011,tenant_a,completed,Fog,
+160.0,S7-017,tenant_a,arrived,,
+160.0,S7-017,tenant_a,allocated,Edge,"Edge selected; energy_aware score=0.5972. Edge: capacity=pass, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=fail"
+180.0,S7-018,tenant_b,arrived,,
+180.0,S7-018,tenant_b,allocated,Fog,"Fog selected; energy_aware score=0.3583. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+185.0,S7-018,tenant_b,completed,Fog,
+185.0,S7-019,tenant_a,arrived,,
+185.0,S7-019,tenant_a,allocated,Fog,"Fog selected; energy_aware score=0.3958. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+190.0,S7-020,tenant_b,arrived,,
+190.0,S7-020,tenant_b,allocated,Fog,"Fog selected; energy_aware score=0.7500. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=fail"
+195.0,S7-004,tenant_b,completed,Fog,
+195.0,S7-021,tenant_a,arrived,,
+195.0,S7-021,tenant_a,allocated,Fog,"Fog selected; energy_aware score=0.5139. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+200.0,S7-017,tenant_a,completed,Edge,
+215.0,S7-020,tenant_b,completed,Fog,
+215.0,S7-022,tenant_b,arrived,,
+215.0,S7-022,tenant_b,allocated,Edge,"Edge selected; energy_aware score=0.2931. Edge: capacity=pass, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+220.0,S7-023,tenant_a,arrived,,
+220.0,S7-023,tenant_a,allocated,Fog,"Fog selected; energy_aware score=0.5417. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+230.0,S7-024,tenant_b,arrived,,
+230.0,S7-024,tenant_b,allocated,Fog,"Fog selected; energy_aware score=0.6806. Edge: capacity=fail, QoS=fail; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+235.0,S7-019,tenant_a,completed,Fog,
+235.0,S7-021,tenant_a,completed,Fog,
+245.0,S7-005,tenant_a,completed,Fog,
+250.0,S7-025,tenant_a,arrived,,
+250.0,S7-025,tenant_a,allocated,Fog,"Fog selected; energy_aware score=0.5509. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+255.0,S7-026,tenant_b,arrived,,
+255.0,S7-026,tenant_b,allocated,Fog,"Fog selected; energy_aware score=0.7500. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=fail"
+255.0,S7-027,tenant_a,arrived,,
+255.0,S7-027,tenant_a,allocated,Fog,"Fog selected; energy_aware score=0.3708. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+255.0,S7-028,tenant_b,arrived,,
+255.0,S7-028,tenant_b,allocated,Cloud,"Cloud selected; energy_aware score=0.8889. Edge: capacity=fail, QoS=pass; Fog: capacity=fail, QoS=pass; Cloud: capacity=pass, QoS=pass"
+255.0,S7-029,tenant_a,arrived,,
+255.0,S7-029,tenant_a,allocated,Cloud,"Cloud selected; energy_aware score=0.5889. Edge: capacity=fail, QoS=pass; Fog: capacity=fail, QoS=pass; Cloud: capacity=pass, QoS=pass"
+261.6666666666667,S7-029,tenant_a,completed,Cloud,
+265.0,S7-030,tenant_b,arrived,,
+265.0,S7-030,tenant_b,allocated,Cloud,"Cloud selected; energy_aware score=0.6111. Edge: capacity=fail, QoS=pass; Fog: capacity=fail, QoS=pass; Cloud: capacity=pass, QoS=pass"
+270.0,S7-023,tenant_a,completed,Fog,
+275.0,S7-027,tenant_a,completed,Fog,
+280.0,S7-026,tenant_b,completed,Fog,
+285.0,S7-031,tenant_a,arrived,,
+285.0,S7-031,tenant_a,rejected,,"Edge: capacity=fail, QoS=fail; Fog: capacity=pass, QoS=fail; Cloud: capacity=pass, QoS=fail"
+295.0,S7-022,tenant_b,completed,Edge,
+295.0,S7-028,tenant_b,completed,Cloud,
+295.0,S7-032,tenant_b,arrived,,
+295.0,S7-032,tenant_b,allocated,Edge,"Edge selected; energy_aware score=0.2639. Edge: capacity=pass, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+298.3333333333333,S7-030,tenant_b,completed,Cloud,
+303.3333333333333,S7-025,tenant_a,completed,Fog,
+305.0,S7-032,tenant_b,completed,Edge,
+305.0,S7-033,tenant_a,arrived,,
+305.0,S7-033,tenant_a,allocated,Edge,"Edge selected; energy_aware score=0.2347. Edge: capacity=pass, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+305.0,S7-034,tenant_b,arrived,,
+305.0,S7-034,tenant_b,allocated,Fog,"Fog selected; energy_aware score=0.3667. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+315.0,S7-033,tenant_a,completed,Edge,
+320.0,S7-034,tenant_b,completed,Fog,
+325.0,S7-035,tenant_a,arrived,,
+325.0,S7-035,tenant_a,allocated,Fog,"Fog selected; energy_aware score=0.4875. Edge: capacity=pass, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+325.0,S7-036,tenant_b,arrived,,
+325.0,S7-036,tenant_b,allocated,Edge,"Edge selected; energy_aware score=0.5972. Edge: capacity=pass, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=fail"
+325.0,S7-037,tenant_a,arrived,,
+325.0,S7-037,tenant_a,allocated,Fog,"Fog selected; energy_aware score=0.4375. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+330.0,S7-024,tenant_b,completed,Fog,
+330.0,S7-038,tenant_b,arrived,,
+330.0,S7-038,tenant_b,allocated,Fog,"Fog selected; energy_aware score=0.4213. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+330.0,S7-039,tenant_a,arrived,,
+330.0,S7-039,tenant_a,allocated,Fog,"Fog selected; energy_aware score=0.4722. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+335.0,S7-040,tenant_b,arrived,,
+335.0,S7-040,tenant_b,allocated,Fog,"Fog selected; energy_aware score=0.5208. Edge: capacity=fail, QoS=pass; Fog: capacity=pass, QoS=pass; Cloud: capacity=pass, QoS=pass"
+336.6666666666667,S7-038,tenant_b,completed,Fog,
+355.0,S7-039,tenant_a,completed,Fog,
+365.0,S7-036,tenant_b,completed,Edge,
+425.0,S7-037,tenant_a,completed,Fog,
+485.0,S7-035,tenant_a,completed,Fog,
+535.0,S7-040,tenant_b,completed,Fog,

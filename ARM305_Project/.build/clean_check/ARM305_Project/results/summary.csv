@@ -1,0 +1,6 @@
+experiment,policy,total,completed,rejected,cancelled,mean_ms,p95_ms,qos_percent,Edge_tasks,Edge_peak_cpu_pct,Edge_peak_ram_pct,Fog_tasks,Fog_peak_cpu_pct,Fog_peak_ram_pct,Cloud_tasks,Cloud_peak_cpu_pct,Cloud_peak_ram_pct
+baseline_latency,latency_first,18,18,0,0,68.06,107.25,100.0,2,100.0,100.0,15,100.0,75.0,1,12.5,6.25
+baseline_capacity,capacity_aware,18,18,0,0,89.17,125.0,100.0,0,0.0,0.0,9,41.67,37.5,9,34.38,15.62
+overload,latency_first,20,12,8,0,110.83,125.0,100.0,1,100.0,100.0,3,100.0,75.0,8,100.0,50.0
+capacity_increase,latency_first,18,18,0,0,70.56,105.0,100.0,8,100.0,91.67,10,100.0,75.0,0,0.0,0.0
+latency_increase,latency_first,18,18,0,0,76.39,170.0,100.0,2,100.0,100.0,15,100.0,75.0,1,12.5,6.25
